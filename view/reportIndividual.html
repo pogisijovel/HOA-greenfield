@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Collection Report</title>
+    <link rel="stylesheet" href="/assets/css/reportCollectionList.css">
+</head>
+<body>
+    <div class="headtoolbar">
+        <h1 class="toolbar-title">Individual Collection Report</h1>
+    </div>
+
+    <div id="box">
+        <div class="sectoolbar">
+            <button id="generateReport" >Download Report</button>
+        </div>
+
+        <label for="search">Search Name:</label>
+        <input type="text" name="" id="searchName" list="names">
+        <datalist id="names">
+        </datalist>
+
+        <button id="find">Find</button>
+        <button id="reset" >Reset</button>
+        
+
+    </div>
+    <div id="iframe-container">
+        <div id="table-container">
+       <table id="showTable">
+        <thead>
+        <tr>
+            <th>Transaction #</th>
+            <th>Member Name</th>
+            <th>Collector</th>
+            <th>Date</th>
+            <th>Total Fee</th>
+            <th>Past Lot</br> Amort Ballance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        </tr>
+    </tbody>
+       </table>
+    </div>
+    </div>
+
+    <script type="module" src="../assets/js/reportIndividual.js"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-nNE8lRi6+jq7rA6zVdTTxQO6sKlNXZ5vkqCErye2VptU0rK5DOwmVz/3CrKqUUTzDNu0UilEPgGRCN8dXU4u2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Reset some basic elements */
+        body, h1, h2, h3, h4, h5, h6, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Use a more modern sans-serif font */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            overflow: hidden; /* Prevent body from scrolling */
+        }
+
+        /* Simplified header with better spacing */
+        header {
+            background-color: #5F7A61; /* A professional blue shade */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Adjust the log out button to be more subtle */
+        #signOut {
+            padding: 5px 15px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #signOut:hover {
+            background-color: white;
+            color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 50px); /* Subtract the header height */
+        }
+
+        .sidebar {
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            width: fixed;
+            height: 100vh;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            border-right: 1px solid #5F7A61; /* Set the border color to black */
+        }
+
+        .main-content {
+            position: relative; /* This makes it a container for absolute children */
+            flex-grow: 1;
+            overflow: auto;
+            height: 100%;
+            padding: 20px; /* Add some padding if necessary */
+        }
+
+        /* Sidebar items with more modern styling */
+        .menu-item {
+            background-color: transparent;
+            color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease; /* Only transition background-color */
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            border: 1px solid #ddd; /* Light border for each menu item */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+        }
+
+        .menu-item:hover {
+            background-color: #e8e8e8;
+        }
+
+        /* Subtle hover effect for dropdown */
+        .dropdown-content div:hover {
+            background-color: #e8e8e8;
+        }
+
+        .iframe-wrapper {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 50px);
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        iframe {
+            position: absolute;
+            width: 100%; /* Set the maximum width of the iframe */
+            max-width: 84%; /* Ensure the iframe doesn't exceed the container width */
+            height: 90%;
+            border: none;
+            overflow-y: auto;
+        }
+
+        /* Scrollbars styled to be less intrusive */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f0f0f0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+
+        /* Style the select dropdown */
+        select {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* Labels within header for better visibility */
+        #headd label {
+            color: white;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <label>Hi, </label>
+            <label id="userType"></label>
+            <br>
+            <label id="Email"></label>
+        </div>
+        <button id="signOut">Log Out</button>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <div id="toolbar">
+                <span><label>MODULES</label></span>
+            </div>
+
+            <div class="menu-item" id="member">
+                <span>Members Details</span>
+            </div>
+
+            <div class="menu-item" id="collectionList" >
+                <span>Collection List</span>
+            </div>
+
+            <div class="menu-item" id="property">
+                <span>Property List</span>
+            </div>
+
+            <div class="menu-item" id="reserve" >
+                <span>Event Handler</span>
+            </div>
+
+            <div class="menu-item">
+                <select id="certificateSelect" >
+                    <option value="" disabled selected>Certificate</option>
+                    <option value="building">Building Clearance</option>
+                    <option value="membership">Membership</option>
+                    <option value="owner">Title</option>
+                </select>
+            </div>
+
+            <div id="adminModule">
+                <div id="toolbar">
+                    <span><label>Admin Modules</label></span>
+                </div>
+
+                <div class="menu-item" id="account" >
+
+                    <span>Accounts</span>
+                </div>
+                <div class="menu-item" id="colCat" >
+                    <span>Collection Category</span>
+                </div>
+
+                <div class="menu-item">
+                    <select id="reportSelect">
+                        <option value="" disabled selected>Reports</option>
+                        <option value="collectionList">Collection List</option>
+                        <option value="property">Property</option>
+                        <option value="reservation">Reservation</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="colCat-iframe-wrapper" id="iframeWrapper_colCat">
+            <iframe id="colCat-iframe" src=""></iframe>
+        </div>
+
+        <div class="memberdetails-iframe-wrapper" id="iframeWrapper_memberdetails">
+            <iframe id="memberdetails-iframe" src=""></iframe>
+        </div>
+
+        <div class="collectionlist-iframe-wrapper" id="iframeWrapper_collectionlist">
+            <iframe id="collectionlist-iframe" src=""></iframe>
+        </div>
+
+        <div class="property-iframe-wrapper" id="iframeWrapper_property">
+            <iframe id="property-iframe" src=""></iframe>
+        </div>
+
+        <div class="reservation-iframe-wrapper" id="iframeWrapper_reservation">
+            <iframe id="reservation-iframe" src=""></iframe>
+        </div>
+        <div class="building-iframe-wrapper" id="iframeWrapper_building">
+            <iframe id="building-iframe" src=""></iframe>
+        </div>
+        <div class="membership-iframe-wrapper" id="iframeWrapper_membership">
+            <iframe id="membership-iframe" src=""></iframe>
+        </div>
+        <div class="owner-iframe-wrapper" id="iframeWrapper_owner">
+            <iframe id="owner-iframe" src=""></iframe>
+        </div>
+
+        <div class="accounts-iframe-wrapper" id="iframeWrapper_accounts">
+            <iframe id="accounts-iframe" src=""></iframe>
+        </div>
+
+        <div class="collection-iframe-wrapper" id="iframeWrapper_collection">
+            <iframe id="collection-iframe" src=""></iframe>
+        </div>
+
+        <div class="category-iframe-wrapper" id="iframeWrapper_category">
+            <iframe id="category-iframe" src=""></iframe>
+        </div>
+        <div class="propertybin-iframe-wrapper" id="iframeWrapper_propertybin">
+            <iframe id="propertybin-iframe" src=""></iframe>
+        </div>
+
+        <div class="propertyReport-iframe-wrapper" id="iframeWrapper_propertyReport">
+            <iframe id="propertyReport-iframe" src=""></iframe>
+        </div>
+
+        <div class="collectionReport-iframe-wrapper" id="iframeWrapper_collectionReport">
+            <iframe id="collectionReport-iframe" src=""></iframe>
+        </div>
+
+        <div class="reservationReport-iframe-wrapper" id="iframeWrapper_reservationReport">
+            <iframe id="reservationReport-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="iframe-wrapper" id="iframeWrapper_colCat">
+            <iframe id="colCat-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('.menu-item');
+
+            function hideAllIframeWrappers() {
+                document.querySelectorAll('.iframe-wrapper').forEach(wrapper => {
+                    wrapper.style.display = 'none';
+                    wrapper.style.zIndex = '-1'; // Ensure it's behind other content
+                });
+            }
+
+            function showIframe(wrapperId) {
+                hideAllIframeWrappers();
+                const iframeWrapper = document.getElementById(wrapperId);
+                if (iframeWrapper) {
+                    iframeWrapper.style.display = 'block';
+                    // Make sure the iframe is above other content
+                    iframeWrapper.style.zIndex = '1000';
+                }
+            }
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const iframeId = 'iframeWrapper_' + item.id;
+                    showIframe(iframeId);
+                });
+            });
+
+            // Additional code for the "Members Details" item
+            const memberDetailsMenuItem = document.getElementById('member');
+            memberDetailsMenuItem.addEventListener('click', () => {
+                hideAllIframeWrappers();
+                showIframe('iframeWrapper_memberdetails');
+            });
+
+            // Additional code for the "Collection List" item
+            const collectionListItem = document.getElementById('collectionList');
+            collectionListItem.addEventListener('click', () => {
+                hideAllIframeWrappers();
+                showIframe('iframeWrapper_collectionlist');
+            });
+
+            // Set "Members Details" as the default iframe to display
+            showIframe('iframeWrapper_memberdetails');
+        });
+    </script>
+
+    <script type="module" src="../assets/credentials/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    overflow: auto;
+}
+.box {
+margin-top: 50px;
+margin-left: 40px;
+border: 1px solid gainsboro; /* Add an outer border with your desired color */
+padding: 20px; /* Add some padding around the content */
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Box shadow for a subtle effect */
+width: 350px; /* Set a fixed width for the container */
+
+}
+
+.box div {
+margin-bottom: 10px; /* Add spacing between inner divs */
+}
+
+div label {
+
+color: green; /* Green label text color */
+}
+
+
+.toolbar {
+margin-top: 50px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+width: 92%;
+background-color: #1CAC78; /* Background color for the toolbar */
+color: #fff; /* Text color */
+display: flex;
+justify-content: space-between;
+font-size: large;
+font-weight: bold;
+padding: 10px;
+}
+
+h2{
+text-align: center;
+}
+
+
+
+
+
+.headtoolbar {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #5F7A61;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toolbar-title {
+    color: #5F7A61;
+    font-size: 40px;
+    font-style: bold;
+    margin: 0;
+}
+
+#bleta {
+margin-top: 50px;
+text-align: center;
+width: 94.2%;
+margin: 0;
+border: 1px solid black; /* Add an outer border with your desired color */
+border-collapse: collapse; /* Optional: collapse border spacing */
+
+}
+
+#alignn label {
+text-align: left;
+display: inline-block;
+width: 100px; /* Adjust the width as needed */
+margin-right: 10px; /* Add some space between label and input */
+}
+#alignn input[type="text"] {
+width: auto;
+text-align: left;
+}
+
+label {
+width: 150px; /* Adjust the width as needed */
+display: inline-block;
+vertical-align: middle;
+font-size: large;
+}
+th,td{
+border: 1px solid;
+padding: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+width: 250px; /* Adjust the width as needed */
+display: inline-block;
+vertical-align: middle;
+}
+
+#form-container {
+display: flex; /* Use flexbox */
+justify-content: space-between; /* Space elements evenly */
+}
+
+#form-column-1,
+#form-column-2 {
+margin: 10px; /* Add margin for spacing */
+}
+
+#form-column-1 {
+flex: 1; /* Let it take up equal space */
+/* Add your custom styling for the form column */
+}
+
+#form-column-2 {
+margin-left: 20px;
+flex: 2; /* Give it more space compared to form-column-1 */
+/* Add your custom styling for the toolbar column */
+}
+
+/* #collections-container {
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+border: 2px solid gainsboro; 
+padding: 10px; 
+margin-top: 20px; 
+overflow: auto; 
+border-bottom-width: 3px;
+height: 650px;
+} */
+
+#Fee::-webkit-inner-spin-button,
+#Fee::-webkit-outer-spin-button {
+-webkit-appearance: none;
+appearance: none;
+margin: 0;
+}
+
+#button {
+text-align: center;
+
+}
+
+#add {
+padding: 10px 20px; /* Adjust padding as needed */
+background-color: green; /* Change background color */
+color: #fff; /* Change text color */
+border: none; /* Remove button border */
+border-radius: 5px; /* Add rounded corners */
+cursor: pointer;
+margin-top: 15px;
+font-size: 16px; /* Adjust font size */
+margin-left: 100px;
+
+}
+
+/* Hover effect */
+#add:hover {
+background-color: #1CAC78; /* Change background color on hover */
+}
+#magin{
+margin-left: 13%;
+}
+
+.popup {
+height: 300px;
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+padding: 20px;
+border: 1px black;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+width: 259px; /* Adjust the width as needed */
+}
+
+.button {
+    
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Remove button styles */
+.remove-btn {
+
+    background-color: #34db5b; /* Red color */
+    color: white;
+    margin-top: 10px;
+    float: left;
+    width: 100px;
+    height: 25px;
+}
+#save{
+    margin-left: 56px;
+}
+
+/* Close button styles */
+.close-btn {
+    background-color: #db3434; /* Blue color */
+    color: white;
+    margin-top: 10px;
+    float: right;
+    width: 100px;
+    height: 25px;
+}
+
+/* Button hover effect */
+.button:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/profile.css">
+    <title id="title">Members Profile</title>
+
+</head>
+<body>
+
+    <div class="headtoolbar">
+        <h1 class="toolbar-title">Member Profile</h1>
+      </div>
+<div id="collections-container">
+  <button id="sendBB">Send Notice</button>
+  
+      <div id="form-container">
+        
+<div id="form-column-1">
+  <div class="box">
+    <div>
+
+        <label for="name">Fullname</label>
+        <input type="text" id="name" disabled>
+
+        <label for="cont">Contact Number</label>
+        <input type="text" id="cont" disabled>
+
+        <label for="category">Category</label>
+        <input type="text" id="category" disabled>
+
+        <label for="balance">Lot Amortization</label>
+        <input type="number" id="balance" disabled>
+
+        <label for="currentPenalty">Current Penalty</label>
+        <input type="number" id="currentPenalty" disabled>
+
+        <h3 >Property</h3>
+
+       <table id="lotTable">
+        <tr>
+        <th>Lot #</th>
+        <th>Block #</th>
+        <th>Lot Size</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+       </table>
+    
+
+      <div>
+        <label for="statusButton">Status</label>
+        <button id="statusButton" disabled></button>
+        <button id="Edit">Edit Profile</button>
+      </div>
+    </div>
+</div>
+
+<div id="paginationControls"></div>
+    </div> 
+      
+    <div id="form-column-2">
+      <div class="toolbar">
+        <div class="left">
+          <span>Collections</span>
+        </div>
+        <div class="right">
+          <button id="addCollection">+ Add Collection</button>
+        </div>
+      </div>
+      <div id="collections">
+
+        <table id="bleta" class="custom-table">
+          <tr>
+            <th>Transaction #</th>
+            <th>Member Name</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+        </tr>
+        </table>
+
+    </div>
+    </div>
+</div>
+</div>
+      
+<div id="addCol">
+  <div class="toleft">
+  <h3>Add Collection</h3>
+ 
+  
+    <!-- Your left content here -->
+    <div class="form-group">
+        <label for="tranNum">Transaction #:</label>
+        <input type="number" id="tranNum" placeholder="Transaction #">
+    </div>
+    
+    <div class="form-group">
+      <label for="memName">Member Name:</label>
+      <input type="text" id="memName" placeholder="Member Name" disabled >
+    </div>
+
+    <div class="form-group">
+      <label for="collName">Collector Name:</label>
+      <input type="text" id="collName" placeholder="Collector Name">
+    </div>
+    
+    <div class="form-group">
+      <label for="tranDate">Date:</label>
+      <input type="date" id="tranDate" onchange="validateDate(this)">
+    </div>
+  </div>
+
+  <div class="toright">
+            <!-- Your right content here -->
+            <div id="colCat" style="text-align: center;">
+                <table id="addColTable" class="custom-table">      
+                    <tr>
+                        <th>Select</th>
+                        <th>Collection ID</th>
+                        <th>Collection Name</th>
+                        <th>Fee</th>
+                    </tr>     
+                    <tr>
+                        <td></td>
+                    </tr>           
+                </table>
+            </div>
+
+            <div class="button-container">
+                <button id="add">Add</button> 
+                <button id="cancel">Cancel</button>
+            </div>
+      </div>
+
+</div>
+
+
+<div id="left">
+<div id="viewCollection">
+  <h3>Collection Details</h3>
+
+  <div class="form-col">
+      <label for="cdTransactionNumber">Transaction #:</label>
+      <input type="number" id="cdTransactionNumber" placeholder="Transaction #" disabled>
+    </div>
+    
+    <div class="form-col">
+      <label for="cdMemberID">Member ID:</label>
+      <input type="number" id="cdMemberID" placeholder="Member ID" disabled>
+    </div>
+    
+    <div class="form-col">
+      <label for="cdMemberName">Member Name:</label>
+      <input type="text" id="cdMemberName" placeholder="Member Name" disabled>
+    </div>
+
+    <div class="form-col">
+      <label for="cdCollectorName">Collector Name:</label>
+      <input type="text" id="cdCollectorName" placeholder="Collector Name" disabled>
+    </div>
+
+    <div class="form-col">
+      <label for="bal">Lot Amort Balance</label>
+      <input type="number" id="bal" placeholder="Lot Amort" disabled>
+    </div>
+    
+    <div class="form-col">
+      <label for="cdTranDate">Date:</label>
+      <input type="date" id="cdTranDate" onchange="validateDate(this)" disabled>
+    </div>
+
+
+  
+  <div id="cdCollectionTable" style="text-align: center;">
+    <div id="right">
+      <table id="cdTable" class="centered-table">
+        <tr>
+          <th>Collection ID</th>
+          <th>Collection Name</th>
+          <th>Fee</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class="button-container">
+      <button id="viewColCancel">Close</button>
+    </div>
+  </div>
+</div>
+
+<div id="popup" class="popup">
+  <div class="label-input-pair">
+ 
+  
+  <label for="memberName">Member Name:</label>
+  <input id="memberName" type="text" placeholder="Member Name">
+  
+  <label for="spouseName"> Spouse Name:</label>
+  <input id="spouseName" type="text" placeholder="Spouse Name">
+  
+  <label for="occupation">Occupation:</label>
+  <input id="occupation" type="text" placeholder="Occupation">
+
+  <label for="age">Age:</label>
+  <input id="age" type="number" placeholder="Age">
+  
+  <label for="birthday">Birthday:</label>
+  <input id="birthday" type="date" onchange="validateDate(this)" style="text-transform: uppercase;">
+
+  <label for="civilStatus">Civil Status:</label>
+  <input id="civilStatus" type="text"  placeholder="Civil Status">
+  
+</div>
+
+<div class="label-input-pair">
+  
+  <label for="citizenship">Citizenship:</label>
+  <input id="citizenship" type="text"  placeholder="Citizenship">
+
+  <label for="contactNum">Contact #:</label>
+  <input id="contactNum" type="number" placeholder="Contact #">
+  
+  <label for="memberCategory">Member Category:</label>
+  <input list="cattt" id="memberCategory" type="text" placeholder="Member Category" >
+        <datalist id="cattt">
+          <option value="Member">
+          <option value="Renter">
+        </datalist>
+  <label for="memberStatus">Member Status:</label>
+    <input list="stattt" id="memberStatus" type="text" placeholder="Member Status" >
+    <datalist id="stattt">
+      <option value="Active">
+      <option value="Inactive">
+    </datalist>
+
+  <label for="gender">Gender:</label>
+    <input list="gennn" id="gender"  type="text" placeholder="Gender" >
+    <datalist id="gennn">
+      <option value="male">
+      <option value="female">
+    </datalist>
+</div>
+
+  <div class="button-container">
+    <button id="updateMember">Update</button>
+    <button class="clear-button" id="close">Close</button>
+  </div>
+</div>
+
+<form id="smsForm">
+  <h2>Notice Sender</h2>
+  <label for="recipientNumber">Recipient's Phone Number:</label>
+  <input type="text" id="recipientNumber" placeholder="+63" value="+63" disabled>
+  <br>
+
+  <label for="messageBody">Message Body:</label>
+  <textarea id="messageBody" required></textarea>
+  <br>
+
+  <button type="button" id="send">Send SMS</button>
+  <button type="button" id="closeForm">Close</button>
+</form>
+
+      <script type="module" src="../assets/js/profile.js"></script>
+     <script type="module" src="../assets/credentials/twilioCredentials.js"></script>
+     
+      <script>
+        function validateDate(input) {
+        const selectedDate = new Date(input.value);
+        const currentDate = new Date();
+
+        // Remove the time portion from both dates
+        currentDate.setHours(0, 0, 0, 0);
+        selectedDate.setHours(0, 0, 0, 0);
+
+        // Calculate the difference in days
+        const dayDifference = Math.floor((currentDate - selectedDate) / (24 * 60 * 60 * 1000));
+
+        if (dayDifference < 0) {
+            alert("Selected date must be a past date. Please choose a valid date.");
+            input.value = ''; // Reset the input field
+        }
+        }
+
+  document.getElementById('closeForm').addEventListener('click', function () {
+    document.getElementById('smsForm').style.display = 'none';
+  });
+       
+      </script>
+</body>
+</html>

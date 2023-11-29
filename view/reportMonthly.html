@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Collection Report</title>
+    <link rel="stylesheet" href="/assets/css/reportCollectionList.css">
+</head>
+<body>
+    <div class="headtoolbar">
+        <h1 class="toolbar-title">Monthly Collection Report</h1>
+    </div>
+
+    <div id="box">
+        <div class="sectoolbar">
+            <button id="generateReport" >Download Report</button>
+        </div>
+
+        
+        <label for="Select">Select Month:</label>
+        <select name="SelectMonth" id="Select">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          
+
+        <label for="selectYear">Select Year:</label>
+        <select id="selectYear">
+            <option value=""></option>
+        </select>
+
+        <button id="reset" >Reset</button>
+        
+
+    </div>
+    <div id="iframe-container">
+        <div id="table-container">
+       <table id="showTable">
+        <thead>
+        <tr>
+            <th>Transaction #</th>
+            <th>Member Name</th>
+            <th>Collector</th>
+            <th>Date</th>
+            <th>Total Fee</th>
+            <th>Past Lot</br> Amort Ballance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        </tr>
+    </tbody>
+       </table>
+    </div>
+    </div>
+
+    <script type="module" src="../assets/js/reportMonthly.js"></script>
+</body>
+</html>

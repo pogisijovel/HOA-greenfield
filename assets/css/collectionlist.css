@@ -1,0 +1,518 @@
+body{
+    font-family: 'Calibri', sans-serif;
+}
+    /* Style for the toolbar */
+    .toolbar {
+        background-color: transparent;
+        color: black;
+        border: 1px solid #5F7A61;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Style for the toolbar title */
+    .toolbar-title {
+        color: #5F7A61;
+        font-size: 40px;
+        font-style: bold;
+        margin: 0;
+    }
+
+    #box {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100vh - 80px); /* Adjust the height as needed */
+        overflow-y: auto;
+    }
+
+    .sectoolbar {
+margin-top: 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px;
+background-color: #f0f0f0;
+border: 1px solid #ccc;
+}
+
+.sectoolbar h3 {
+margin: 0;
+font-size: 24px; /* Adjust the font size as needed */
+font-weight: bold; /* Add font-weight for better readability */
+}
+
+
+
+.sectoolbar button {
+/* Remove 'margin-left: auto;' and adjust the width as needed */
+width: auto; /* Allow the button to take the necessary width */
+padding: 10px 20px; /* Add padding to the button */
+background-color: #007bff; /* Set background color */
+color: white; /* Set text color */
+border: none; /* Remove the border */
+cursor: pointer;
+border-radius: 10px;
+margin-left: 10px;
+margin-right: 10px; /* Add margin to separate buttons */
+}
+
+/* Hover effect for buttons */
+.sectoolbar button:hover {
+background-color: #0056b3; /* Darker background color on hover */
+}
+
+    #trans {
+        text-align: center;
+        align-items: center;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #trans th, #trans td {
+        width: 5%;
+        border: 1px solid black;
+        padding: 8px;
+        background-color: white;
+        text-align: center;
+    }
+
+    #trans th {
+        background-color: #1CAC78;
+        color: whitesmoke;
+    }
+
+    #addCol {
+margin: 20px auto; /* Center horizontally and add top margin */
+border: 2px solid black;
+width: 800px; /* Adjust the width to accommodate two columns */
+padding: 10px 20px; /* Simplify padding */
+text-align: center; /* Center the content horizontally */
+display: none;
+position: fixed;
+background-color: white;
+transform: translate(-50%, -50%);
+top: 50%;
+left: 50%;
+}
+
+.form-container {
+display: grid;
+grid-template-columns: 1fr 1fr; /* Create two columns */
+grid-gap: 10px; /* Add some spacing between columns */
+}
+
+.left-column {
+padding: 1%;
+}
+
+.right-column {
+overflow-x: hidden;
+overflow-y: scroll;
+text-align: center;
+}
+
+.form-group {
+display: flex;
+flex-direction: row;
+align-items: center;
+margin-bottom: 10px;
+padding: 1%;
+}
+
+#addCol label {
+flex: 1;
+text-align: right;
+margin-right: 4%;
+}
+
+#addCol input {
+flex: 2;
+border: 1px solid #ccc;
+margin-right: 10%;
+}
+
+#addCol h3 {
+text-align: center;
+}
+
+.button-container {
+text-align: center;
+}
+
+/* Add any other CSS styles you need */
+
+
+    .centered-table {
+        margin: 0 auto; /* Center the table horizontally */
+        background-color: #b7f4d8;
+        width: 80%; /* Adjust the width as needed */
+        border-collapse: collapse; /* Remove spacing between table cells */
+    }
+
+    .centered-table th, .centered-table td {
+        border: 1px solid #ccc; /* Add a border to table cells */
+        padding: 8px; /* Add padding to table cells */
+        text-align: center; /* Center-align the content in table cells */
+        width: 25%;
+    }
+
+            /* Style the buttons */
+        #popupMenu {
+            background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+font-size: 13px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+    }
+
+    #find {
+        background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+font-size: 13px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+}
+
+    #popupMenu:hover {
+        border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+
+    /* Align buttons to the right */
+    .button-container {
+        text-align: right;
+    }
+    
+            /* Style the buttons */
+    button#add {
+       background-color: #b7f4d8;
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+font-size: 13px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+    }
+
+    button#cancel {
+        background-color: red;
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+font-size: 13px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+    }
+
+
+    #tranNum::-webkit-inner-spin-button,
+    #tranNum::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    }
+
+    #memID::-webkit-inner-spin-button,
+    #memID::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    }
+
+    #search{
+        margin-top: 10px;
+        height: 5%; 
+    }
+
+    #search label {
+        width: 150px; /* Set the width you want for the label */
+    }
+
+    #search input {
+        font-size: medium;
+        width: 200px; /* Set the same width as the label */
+    }
+
+    #viewCollection {
+    margin: 20px auto; /* Center horizontally and add top margin */
+    border: 2px solid black;
+    width: 500px;
+    height: auto;
+    padding: 10px 20px; /* Simplify padding */
+    text-align: center; /* Center the content horizontally */
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    display: none;
+    position: fixed;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    }
+
+    #viewCollection label {
+        flex: 1;
+        text-align: left;
+        margin-left: 10%;
+       
+    }
+
+    #viewCollection input {
+        flex: 2;
+        border: 1px solid #ccc;
+        margin-right: 10%;
+        width: 20%;
+    }
+
+    #viewCollection h3{
+        text-align: center;
+    }
+
+    #moveBin {
+        float: left;
+        font-size: medium;
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+
+    #viewColCancel {
+        font-size: medium;
+        border-radius: 5px;
+        margin-right: 50px;
+        margin-top: 10px;
+        float: right;
+    }
+
+
+    .form-col {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 1%;
+    }
+    #paginationControls {
+margin: 20px;
+text-align: center;
+}
+
+#paginationControls button {
+background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+font-size: 13px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+margin: 5px;
+}
+
+#paginationControls button:hover {
+border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+.centered-table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+overflow-y: scroll;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.centered-table th,
+.centered-table td {
+padding: 15px;
+border-bottom: 1px solid #ddd;
+text-align: center;
+}
+
+.centered-table th {
+background-color: #1CAC78;
+padding: 0;
+color: white;
+}
+
+.centered-table tr:hover {
+background-color: #f5f5f5;
+}
+
+.centered-table td {
+background-color: #ffffff;
+padding: 0;
+}
+
+.centered-table td:first-child {
+text-align: left;
+}
+
+#add {
+background-color: #c2fbd7;
+border-radius: 100px;
+box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+color: whitesmoke;
+cursor: pointer;
+display: inline-block;
+font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+padding: 7px 20px;
+text-align: center;
+text-decoration: none;
+transition: all 250ms;
+border: 0;
+font-size: 16px;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+}
+
+#add:hover {
+box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+transform: scale(1.05);
+}
+
+#cancel{
+background-color: #c2fbd7;
+border-radius: 100px;
+box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+color: whitesmoke;
+cursor: pointer;
+display: inline-block;
+font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+padding: 7px 20px;
+text-align: center;
+text-decoration: none;
+transition: all 250ms;
+border: 0;
+font-size: 16px;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+}
+#cancel:hover{
+box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+transform: scale(1.05);
+}
+
+button{
+background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+font-size: 13px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+}
+.button:hover {
+border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}

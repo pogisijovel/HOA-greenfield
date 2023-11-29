@@ -1,0 +1,427 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: transparent;
+}
+.button-container {
+    grid-column: span 2; /* Make the button container span both columns */
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    width: 100%;
+}
+        /* Reset spin buttons */
+        #enterID::-webkit-inner-spin-button,
+        #enterID::-webkit-outer-spin-button,
+        #age::-webkit-inner-spin-button,
+        #age::-webkit-outer-spin-button,
+        #bal::-webkit-inner-spin-button,
+        #bal::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        /* Container for the form */
+        #form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Search bar style */
+        #searchBar input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Style for the table */
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        padding: 10px;
+        max-width: 80%;
+        margin: 20px auto;
+        background-color: white; /* Set the background color to white */
+        border: 1px solid black; /* Updated border color */
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style for table header (th) */
+    th {
+        background-color: #b7f4d8;
+        color: black;
+        padding: 10px;
+        text-align: center;
+        width: 25%;
+        font-size: 14px;
+        border-bottom: 1px solid black; /* Updated border color for table header */
+    }
+
+    /* Style for table data (td) */
+    td {
+        padding: 10px;
+        border-bottom: 1px solid black; /* Updated border color for table data */
+        text-align: center;
+        font-size: 14px;
+    }
+
+    /* Style for alternating row colors */
+    tr:nth-child(even) {
+        background-color: #F5F5F5;
+    }
+
+        /* Style for the buttons */
+        button {
+            padding: 10px 15px;
+            background-color: #b7f4d8; /* Updated color */
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+            font-size: 12px;
+        }
+
+        button:hover {
+            background-color: #93faa5;
+        }
+
+        /* Style for the "clear" button */
+        button.clear-button {
+            background-color: #b7f4d8; /* Updated color */
+            color: black;
+            padding: 10px 15px; /* Adjusted padding */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 5px;
+            font-size: 12px; /* Adjusted font size */
+        }
+
+        button.clear-button:hover {
+            background-color: #93faa5;
+        }
+
+        /* Style for the toolbar */
+        .toolbar {
+            background-color: transparent;
+            color: black;
+            border: 1px solid #5F7A61;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the toolbar title */
+        .toolbar-title {
+            color: #5F7A61;
+            font-size: 40px;
+            font-style: bold;
+            margin: 0;
+        }
+
+        /* Popup styles */
+        #popup {
+            border: 1px solid black;
+            padding: 20px; /* Reduced padding for readability */
+            background-color: white;
+            width: 59%;
+            max-height: 70%; /* Added max-height for scrollability */
+            overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(2, auto);
+        }
+        
+        #popup label {
+            grid-column: 1;
+            grid-row: span 1; /* Span to occupy two rows */
+            margin-bottom: 5px;
+            margin-left: 5px;
+            color: black;
+        }
+        
+        #popup input,
+        #popup select {
+            grid-column: 2;
+            grid-row: span 1; /* Span to occupy two rows */
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+
+        /* Label-input pair styles */
+        .label-input-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(2, auto);
+            gap: 10px;
+        }
+
+        .label-input-pair label {
+            grid-column: 1;
+            text-align: center;
+            margin-top: 10px;
+            background-color: transparent;
+            text-align: justify; /* Example background color for odd rows */
+            font-size: 14px;
+        }
+
+        /* Pagination styles */
+        #paginationControls {
+            margin: 20px;
+            text-align: center;
+        }
+
+        #paginationControls button {
+            background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+        }
+        #paginationControls button:hover{
+            border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+        }
+
+        /* Query styles */
+        #quer {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 80%;
+    margin: 20px auto;
+    background-color: transparent; /* Updated background color */
+}
+
+#quer select {
+    height: 25px;
+    border-radius: 10px;
+    width: 120px;
+    font-size: 14px;
+    background-color: transparent; /* Updated background color */
+}
+
+        #quer label {
+            font-size: 18px;
+        }
+
+        #quer option {
+            font-size: 16px;
+        }
+
+    .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #ccc;
+    padding: 20px;
+    width: 80%;
+    display: none;
+    z-index: 1000;
+    background-color: white;
+    text-align: center;
+}
+
+#searchBar {
+    display: flex;
+    align-items: center;
+}
+
+#searchBar label {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+#searchInput {
+    flex-grow: 1; /* Allow it to grow and fill available space */
+    max-width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; /* Increased font size */
+}
+
+.container {
+    display: flex; 
+    justify-content: flex-end;
+    margin-left: auto;
+    height: 100%;
+}
+
+#add,
+#Gen {
+    background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+
+
+#add:hover, #Gen:hover {
+    border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+#memberTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#memberTable th, #memberTable td {
+    border: 1px solid #ddd;
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+#memberTable th {
+    background-color: #1CAC78;
+    color: whitesmoke;
+}
+
+#memberTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#memberTable button {
+    background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+#memberTable button:hover {
+  border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+#closePopup{
+  background-color: red;
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+#addMember, #clear{
+  background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  font-size: 13px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+#addMember, #clear, #closePopup:hover{
+    border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}

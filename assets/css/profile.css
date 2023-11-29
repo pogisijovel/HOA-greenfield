@@ -1,0 +1,680 @@
+.headtoolbar {
+    background-color: #5F7A61;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px; /* Increased font size */
+  }
+  @media screen and (max-width: 768px) {
+    #form-container {
+      flex-direction: column;
+      max-width: 100%; /* Stack columns on small screens */
+    }
+  
+    #form-column-2 {
+      margin-left: 0; /* Remove the left margin on small screens */
+    }
+  }
+  
+    .toolbar-title {
+      margin: 0;
+      font-size: 1.5em; /* Adjust font size as needed */
+      font-weight: bold;
+    }
+    body ::-webkit-scrollbar {
+      width: 0;
+    }
+  
+    body::-webkit-scrollbar-thumb {
+      background: transparent;
+    }
+  
+    /* General box styling */
+    .box {
+    margin: 20px auto;
+    border: 1px solid #ddd; /* Change to a lighter border color */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1); /* Add more depth with two shadows */
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px; /* Add rounded corners */
+    background-color: #fff; /* White background */
+    transition: box-shadow 0.3s ease; /* Smooth box-shadow transition on hover */
+  }
+  
+  .box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  }
+  
+  
+    .box > div {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+    .box label {
+      display: block;
+    }
+  
+    .box input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+  
+    /* Table styling */
+    #lotTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0px;
+  }
+  
+  #lotTable th, #lotTable td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+    #lotTable th,
+    #lotTable td:first-child {
+      width: 20%;
+    }
+  
+    #lotTable th {
+      background-color: #ffffff;
+      color: #000000;
+    }
+  
+    /* Button styling */
+    .button {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+  
+    #statusButton {
+      width: 80px;
+      height: 30px;
+      border-radius: 15px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      background-color: green;
+    }
+  
+    #statusButton.inactive {
+      background-color: #ff0000;
+    }
+  
+    /* Toolbar styling */
+    .toolbar {
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 98%;
+      background-color: #5F7A61;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-top: 10%;
+    }
+  
+    .right #addCollection {
+      background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    }
+  
+    .right #addCollection:hover {
+        box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05)
+    }
+  
+    /* Form styling */
+    .form-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 1%;
+    }
+  
+    #form-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    #form-column-1 {
+    flex: 1;
+    margin: 10px;
+  }
+    #form-column-2 {
+      flex: 2;
+      margin: 10px;
+      margin-left: 20px;
+    }
+  
+    /* Custom table styling */
+    .custom-table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+  
+    .custom-table th,
+    .custom-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      
+      text-align: center;
+      width: 25%;
+    }
+  
+    .custom-table th {
+      background-color: #f2f2f2;
+      margin-top: 20%;
+    }
+    #addCol {
+    display: none;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    width: 800px;
+    height: auto;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 1000; /* Added z-index to ensure it appears above other elements */
+  }
+  
+  #showAddColBtn {
+    margin: 20px;
+    padding: 10px;
+    background-color: #1CAC78;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #showAddColBtn:hover {
+    background-color: #16bb47;
+  }
+  
+          #addCol h3 {
+              text-align: center;
+          }
+  
+          #addCol .toleft,
+          #addCol .toright {
+              flex: 1; /* Adjust the width */
+              margin: 10px;
+          }
+  
+          #addCol .toleft {
+              text-align: left; /* Align text to the left */
+          }
+  
+          #addCol .toright {
+              text-align: right; /* Align text to the right */
+          }
+  
+      .toleft,
+      .toright {
+        flex: 1; /* Each takes up 50% of the container */
+        padding: 0 10px; /* Optional padding for spacing */
+      }
+  
+      .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+  
+      #addCol label {
+        flex: 1;
+        text-align: right;
+        margin-right: 4%;
+      }
+  
+      #addCol input {
+        flex: 2;
+        border: 1px solid #ccc;
+        margin-right: 10%;
+      }
+  
+      #addCol h3 {
+        text-align: center;
+      }
+  
+      #colCat {
+        text-align: center;
+      }
+  
+      .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+  
+      .custom-table th,
+      .custom-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+      }
+  
+      .button-container {
+        margin-top: 10px;
+      }
+  
+      button {
+        padding: 10px 15px;
+              background-color: #b7f4d8; /* Updated color */
+              color: black;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+              margin: 5px;
+              font-size: 12px;
+      }
+      button:hover {
+              background-color: #93faa5;
+          }
+  
+      .no-spin-button::-webkit-inner-spin-button,
+      .no-spin-button::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+      #tranNum::-webkit-inner-spin-button,
+          #tranNum::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          appearance: none;
+          margin: 0;
+          }
+  
+          #memID::-webkit-inner-spin-button,
+          #memID::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          appearance: none;
+          margin: 0;
+          }
+  
+        
+  
+          #popup {
+              border: 2px solid black;
+              background-color: #fff;
+              padding: 20px;
+              width: 50%; /* Adjust the width as needed */
+              margin: 20px auto;
+              display: none;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 10px;
+              border-radius: 15px;
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              cursor: move;
+          }
+  
+  
+          #popup label {
+            margin-bottom: 5px;
+          }
+  
+          #popup input,
+          #popup select {
+            width: 300;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+          }
+  
+          .button-container {
+            grid-column: span 2; /* Make these buttons span both columns */
+            text-align: center;
+          
+          }
+  
+          #popup button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100px;
+            height: 50px;
+            border-radius: 15px;
+          }
+  
+          .clear-button {
+            background-color: #f44336;
+            width: 20%;
+            border-radius: 15px;
+          }
+  
+          /* Divide into two columns with 7 pairs each */
+          .label-input-pair {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 10px;
+          }
+  
+          /* Additional Styling for Specific Elements */
+  
+          #sendBB {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 10px 20px; /* Padding consolidated */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    position: absolute;
+    margin: 30px;
+    top: 80px;
+    right: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  #sendBB:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05)
+  }
+  
+  
+          /* Collection Details Styling */
+          #viewCollection {
+              margin: 20px auto;
+              border: 1px solid #ccc;
+              width: 500px;
+              height: auto;
+              padding: 10px 20px;
+              text-align: center;
+              flex-direction: column;
+              justify-content: center;
+              display: none;
+              position: fixed;
+              background-color: white;
+              transform: translate(-50%, -50%);
+              top: 50%;
+              left: 50%;
+          }
+  
+          #viewCollection label {
+              flex: 1;
+              text-align: left;
+              margin-left: 10%;
+          }
+  
+          #viewCollection input {
+              flex: 2;
+              border: 1px solid #ccc;
+              margin-right: 10%;
+              width: 20%;
+              padding: 8px;
+              box-sizing: border-box;
+              border-radius: 4px;
+          }
+  
+          #viewCollection h3 {
+              text-align: center;
+          }
+  
+          .form-col {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              margin-bottom: 10px;
+              padding: 1%;
+          }
+  
+          .centered-table {
+              margin: 0 auto;
+              width: 80%;
+              border-collapse: collapse;
+              border: 1px solid black;
+          }
+  
+          .centered-table th,
+          .centered-table td {
+              border: 1px solid #ccc;
+              padding: 12px;
+              text-align: center;
+              width: 25%;
+          }
+  
+          .button-container {
+              text-align: right;
+          }
+  
+          #popup {
+              border: 2px solid #ccc;
+              background-color: #fff;
+              padding: 20px;
+              width: 50%;
+              margin: 20px auto;
+              display: none;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 10px;
+              border-radius: 15px;
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+          }
+  
+          #popup label {
+              margin-bottom: 5px;
+          }
+  
+          #popup input,
+          #popup select {
+              width: 100%;
+              padding: 8px;
+              box-sizing: border-box;
+              margin-bottom: 10px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+          }
+  
+          #popup button {
+              padding: 10px;
+              background-color: #4caf50;
+              color: white;
+              border: none;
+              cursor: pointer;
+              width: 100px;
+              height: 50px;
+              border-radius: 15px;
+          }
+  
+          .clear-button {
+              background-color: #f44336;
+              width: 20%;
+              border-radius: 15px;
+          }
+  
+          /* Divide into two columns with 7 pairs each */
+          .label-input-pair {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 10px;
+          }
+  
+          #age::-webkit-inner-spin-button,
+          #age::-webkit-outer-spin-button,
+          #contactNum::-webkit-inner-spin-button,
+          #contactNum::-webkit-outer-spin-button,
+          #tranNum::-webkit-inner-spin-button,
+          #tranNum::-webkit-outer-spin-button,
+          #memID::-webkit-inner-spin-button,
+          #memID::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              appearance: none;
+              margin: 0;
+          }
+  
+          #smsForm {
+    background-color: white; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #5f7a61;
+    width: 300px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #smsForm h2 {
+    color: #333; /* Dark gray text color */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #smsForm label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555; /* Gray text color for labels */
+  }
+  
+  #smsForm input,
+  #smsForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  
+          #smsForm button {
+            background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+          }
+  
+          #smsForm button:hover {
+                box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05)
+          }
+  
+  
+          #Edit {
+            background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    margin-left: 33%;
+    touch-action: manipulation;
+    }
+  
+    #Edit:hover {
+        box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05)
+    }
+  
+    #paginationControls {
+    margin-top: 20px;
+  }
+  
+  #paginationControls {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #paginationControls button {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 0 5px; /* Add space between buttons */
+  }
+  
+  #paginationControls button:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05)
+  }
+  
+  #form-column-2 {
+          margin-left: 20px;
+          flex: 2; 
+          margin: 10px;
+          }
+  
+          #bleta th{
+            background-color: #1CAC78;
+          }

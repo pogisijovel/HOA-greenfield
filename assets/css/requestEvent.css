@@ -1,0 +1,279 @@
+body{
+    font-family: 'Calibri', sans-serif;
+    background-color: transparent; 
+    justify-content: center;
+    align-items: center;    
+}
+.toolbar {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #5F7A61;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toolbar label {
+    color: #5F7A61;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+}
+
+#addAC {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#addAC:hover {
+    background-color: #08d835;
+    color: beige;
+}
+
+.form-container {
+    font-family: 'Arial', sans-serif;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.form-container h2 {
+    text-align: center;
+}  
+    
+.form-box {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Adjusted to fit iframe wrapper */
+}
+
+.form-box label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-box input {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form-box button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.form-box button:hover {
+    background-color: #45a049;
+}
+
+.form-box select {
+    height: 36px;
+    width: 100%; /* Adjusted to fit iframe wrapper */
+    padding: 4px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.form-box select:hover,
+.form-box select:focus {
+    border-color: #4CAF50;
+}
+
+.form-box select option {
+    font-size: 14px;
+    background-color: #f4f4f4;
+}
+
+#memberID::-webkit-inner-spin-button,
+#memberID::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+#contactNum::-webkit-inner-spin-button,
+#contactNum::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* Container for the table to enable horizontal scrolling on small screens */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    margin-top: 50px;
+  }
+  
+  table {
+    width: 100%; /* Full width to fit the container */
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 5%;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid black; /* Consistent border for all cells */
+  }
+  
+  th {
+    background-color: #1CAC78;
+    color: white;
+    font-weight: bold;
+  }
+  
+  tr:last-child {
+    border-bottom: none;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+  
+  tr:hover {
+    background-color: #e0e0e0; /* Slightly darker background on hover */
+  }
+  
+  /* Style adjustments for buttons inside table cells */
+  td button {
+    /* ... existing styles ... */
+    font-size: 12px; /* Smaller font size for mobile screens */
+    padding: 5px 10px; /* Smaller padding for mobile screens */
+  }
+  
+  td button:hover {
+    /* ... existing styles ... */
+  }
+  
+  /* Responsive table styling for smaller devices */
+  @media screen and (max-width: 600px) {
+    th, td {
+      padding: 8px; /* Reduce padding to accommodate smaller screens */
+      font-size: 12px; /* Adjust font size for readability */
+    }
+  
+    td button {
+      font-size: 10px; /* Even smaller font size for buttons */
+      padding: 4px 8px; /* Adjust padding for buttons */
+    }
+  }
+  
+
+.password-container {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Adjusted to fit iframe wrapper */
+}
+
+.password-icon {
+    position: absolute;
+    top: 35%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.match {
+    border: 2px solid rgb(13, 245, 13);
+}
+
+
+#cal,
+#addAC {
+    background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+float: right;
+margin-right: 10%;
+}
+
+#cal:hover {
+background-color: #45A049;
+}
+#searchBar{
+margin-left: 10%;
+}
+
+#searchBar {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+}
+
+#container {
+    display: flex;
+    justify-content: center; /* Aligns children horizontally at the center */
+    align-items: center;     /* Aligns children vertically at the center */
+}
+
+#selectB, #facility {
+    /* Additional individual styling for selectB and facility */
+    margin: 10px; /* Example: adds margin around each item */
+}
+
+
+#searchBar label {
+    display: block;
+    font-size: 25px;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+}
+

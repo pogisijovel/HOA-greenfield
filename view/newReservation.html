@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Reservation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.js"></script>
+    <link rel="stylesheet" href="/assets/css/newReservation.css">
+
+</head>
+<body>
+
+<!-- <div class="toolbar">
+    <label id="rev">Facility Reservation</label>
+</div> -->
+
+<div class="container">
+    <div id="calendar"></div>
+
+    
+
+    <div id="reservationdiv">
+
+        <h3>Reserve Now</h3>
+        <br>
+
+        <label for="contNum">Contact Number</label>
+        <input type="number" id="contNum" placeholder="Contact Number" value="09959831815" oninput="limitInputTo11Digits(this)">
+
+        <label for="facility">Select Facility:</label>
+        <input list="facilityVal" id="facility" placeholder="Choose Facility">
+        <datalist id="facilityVal">
+          <option value="facility 1">
+          <option value="facility 2">
+          <option value="facility 3">
+          <option value="facility 4">
+          <option value="facility 5">
+        </datalist>
+
+        <label for="datetime">Select Date: </label>
+        <input type="date" id="datetime"   disabled>
+
+        <label for="timeFrom">Time From:</label>
+        <input type="time" id="timeFrom" >
+      
+        <label for="timeTo">Time To:</label>
+        <input type="time" id="timeTo"  >
+        <button id="subB">Submit Reservation</button>
+    </div>
+
+    <div id="contents">
+            <label for="queryFac">Select Facility:</label>
+            
+                <input list="queryFacility" id="queryFac" placeholder="Choose Facility">
+                <datalist id="queryFacility">
+                <option value="facility 1">
+                <option value="facility 2">
+                <option value="facility 3">
+                <option value="facility 4">
+                <option value="facility 5">
+                </datalist>
+      
+    
+        <div id="tableContainer">
+            <table id="reqTable">
+                <thead>
+                    <tr>
+                        <th>Facility</th>
+                        <th>Date</th>
+                        <th>Time From</th>
+                        <th>Time To</th>
+                    </tr>
+                </thead>
+                <tbody id="bads">
+                   
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+</div>
+
+
+<script>
+    function limitInputTo11Digits(inputElement) {
+      // Remove non-numeric characters
+      let sanitizedValue = inputElement.value.replace(/\D/g, '');
+
+      // Limit to 11 digits
+      if (sanitizedValue.length > 11) {
+        sanitizedValue = sanitizedValue.slice(0, 11);
+      }
+
+      // Update the input value
+      inputElement.value = sanitizedValue;
+    }
+  </script>
+
+
+<script type="module"  src="../assets/js/newReserve.js"></script>
+
+</body>
+</html>

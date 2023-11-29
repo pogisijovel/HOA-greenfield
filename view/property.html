@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property</title>
+    <link rel="stylesheet" href="/assets/css/property.css">
+</head>
+
+<body>
+    <div class="toolbar">
+        <h1 class="toolbar-title">Property Module</h1>
+    </div>
+<button id="addProp"onclick="showPopup()">Add Property</button>
+    <div class="form-container">
+
+        <label for="ownerName">Owner Name</label>
+        <input id="ownerName" type="text" >
+        
+        
+        <label for="lotNumber">Lot Number</label>
+        <input id="lotNumber" type="number">
+        
+        
+        <label for="blockNum">Block Number</label>
+        <input id="blockNum" type="number">
+        
+        <label for="lotSize">Lot Size</label>
+        <input id="lotSize" type="number">
+        
+        <label for="propertyStatus">Property Status</label>
+        <select id="propertyStatus" >
+            <option value="" disabled selected>--- Select Property Status ---</option>
+            <option value="Owned">Owned</option>
+            <option value="Rented">Rented</option>
+            <option value="Vacant">Vacant</option>
+        </select>
+
+        <div class="button-container">
+            <button id="insert" class="button">Insert Property</button>
+            
+            
+        </div>
+    </div>
+
+
+
+    <div class="center-container">
+        <div id="searchBar">
+            <p for="searchInput">Search:</p>
+            <input type="number" id="searchInput" placeholder="Search by lot number">
+            <button id="find">Find</button>
+        </div>
+    </div>
+<div>
+    <label for="sad">Block Number:</label>
+    <select id="sad" >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+      <option value="13">13</option>
+      <option value="14">14</option>
+      <option value="15">15</option>
+      <option value="16">16</option>
+      <option value="17">17</option>
+    </select>
+</div>
+    <table id="table">
+        <tr>
+            <th>Owner Name</th>
+            <th>Lot Number</th>
+            <th>Block Number</th>
+            <th>Lot Size</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          
+    </table>
+    <div id="paginationControls"></div>
+    
+    <div class="popup">
+
+        <div class="form-group">
+            <label for="popupownerName">Owner Name:</label>
+            <input type="text" id="popupownerName" placeholder="Owner Name" disabled>
+          </div>
+      
+        <div class="form-group">
+          <label for="popuplotNum">Lot Number:</label>
+          <input type="number" id="popuplotNum" placeholder="Lot Number" disabled>
+        </div>
+      
+        <div class="form-group">
+          <label for="popupblockNum">Block Number:</label>
+          <input type="number" id="popupblockNum" placeholder="Block Number" disabled>
+        </div>
+      
+        <div class="form-group">
+          <label for="popuplotSize">Lot Size:</label>
+          <input type="number" id="popuplotSize" placeholder="Lot Size" disabled>
+        </div>
+      
+        <div class="form-group">
+          <label for="popuppropertyStatus">Property Status:</label>
+          <select id="popuppropertyStatus"disabled>
+            <option value="" disabled selected>--- Select Property Status ---</option>
+            <option value="Owned">Owned</option>
+            <option value="Rented">Rented</option>
+            <option value="Vacant">Vacant</option>
+        </select>
+        </div>
+        
+       
+        <button id="Edit" class="update-btn ">Edit</button>
+        
+        <button class="close-btn" onclick="togglePopup()">Close</button>
+        <button id="updateB" class="save-btn ">Update</button>
+      </div>
+      
+      
+<script>
+    // Function to show/hide the popup
+function togglePopup() {
+  var popup = document.querySelector('.popup');
+  if (popup.style.display === 'none' || popup.style.display === '') {
+    popup.style.display = 'block';
+  } else {
+    popup.style.display = 'none';
+  }
+}
+
+        // Function to show the popup
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+        }
+
+        // Function to hide the popup
+        function hidePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = 'none';
+        }
+
+        // Add an event listener to open the popup when the button is clicked
+        var addPropButton = document.getElementById("addPropButton");
+        addPropButton.addEventListener('click', showPopup);
+
+        // Add an event listener to close the popup when the close button is clicked
+        var closePopupButton = document.getElementById("closePopup");
+        closePopupButton.addEventListener('click', hidePopup);
+</script>
+    <script type="module" src="../assets/js/property.js"></script>
+</body>
+</html>

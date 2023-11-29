@@ -1,0 +1,438 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: transparent; /* Choose a light background color */
+}
+/* Your CSS styles for .form-container go here */
+.form-container {
+    margin: 20px auto;
+    display: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 400px;
+    padding: 25px;
+    border: 1px solid gainsboro;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 999;
+}
+
+
+        .form-container label {
+            flex-basis: 45%; /* Adjust the width as needed */
+            text-align: left;
+            margin-right: 10px;
+            color: #1CAC78;
+        }
+
+        .form-container input, .form-container select {
+            flex-basis: 50%;
+            margin-bottom: 10px;
+            
+        }
+        #propertyStatus {
+            flex-basis: 52%;
+        }
+        
+        .toolbar {
+            background-color: transparent;
+            color: #5F7A61;
+            border: 1px solid #5F7A61;
+            padding: 10px;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        .toolbar-title {
+            color: #5F7A61;
+            font-size: 40px;
+            font-style: bold;
+            margin: 0;
+        }
+
+
+        .button-container {
+            text-align: center;
+        }
+
+
+        .title {
+            margin: 0; /* Remove default margin for the title */
+        }
+
+        /* Container for the table to enable horizontal scrolling on small screens */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  margin: 20px 0; /* Adjusted to provide margin only on top and bottom */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%; /* Full width to fit the container */
+  max-width: 80%; /* Maximum width allowed */
+  margin: 0 auto; /* Centers the table */
+  border: 1px solid black; /* Add border to the table */
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+th {
+  background-color: #1CAC78;
+  color: whitesmoke;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Responsive table styling for smaller devices */
+@media screen and (max-width: 600px) {
+  th, td {
+    padding: 5px; 
+    font-size: 12px; 
+  }
+}
+
+
+            /* Container for centering */
+.center-container {
+  display: flex;
+  justify-content: justify;
+  align-items: left;
+margin-top: 0px;
+}
+
+#searchBar {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#searchBar p {
+  margin: 0; 
+  margin-right: 10px;
+}
+    #searchInput{
+        width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+    }
+
+    p {
+        margin-right: 10px;
+    font-size: 20px;
+    display: block;
+
+    }
+
+        #ownerID::-webkit-inner-spin-button,
+        #ownerID::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+
+        #lotNumber::-webkit-inner-spin-button,
+        #lotNumber::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+        #blockNum::-webkit-inner-spin-button,
+        #blockNum::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+        #lotSize::-webkit-inner-spin-button,
+        #lotSize::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+
+        
+        #searchInput::-webkit-inner-spin-button,
+        #searchInput::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+       
+
+        .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        width: 300px; /* Adjust the width as needed */
+        }
+
+        .form-group {
+          margin-bottom: 15px;
+          display: flex;
+          flex-direction: column;
+      }
+      
+      .form-group label {
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+      
+      .form-group input[type="number"],
+      .form-group input[type="text"],
+      .form-group select {
+          width: 100%;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+      
+        
+
+        .update-btn {
+        background-color: #3fae45;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 40px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        float:left;
+        width: 70px;
+        
+        }
+       
+        .save-btn {
+            background-color: grey;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 40px;
+            cursor: pointer;
+            margin: 10px auto; 
+            width: 150px;
+            display: none; 
+            margin-top: 50px;
+            }
+
+
+            .save-btn:hover {
+            background-color: #3fae45;
+            }
+
+
+    
+
+        #popupownerID::-webkit-inner-spin-button,
+        #popupownerID::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+        #popuplotNum::-webkit-inner-spin-button,
+        #popuplotNum::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+        #popupblockNum::-webkit-inner-spin-button,
+        #popupblockNum::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+        #popuplotSize::-webkit-inner-spin-button,
+        #popuplotSize::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+
+#addProp{
+margin-right: 5px;
+  float: right;
+  background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+#addProp:hover{
+    border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+#paginationControls {
+  text-align: center;
+}
+
+#paginationControls button {
+    background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  font-size: 14px;
+  height: 29px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 11px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  margin: 5px;
+}
+
+#paginationControls button:hover {
+    border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+#find{
+    background-color: #c2fbd7;
+  margin-left: 10px;
+  background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  text-align: center;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+#find:hover{
+    border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+#blockNum{
+    width: 50px;
+}
+
+div {
+  text-align: center;
+  margin-top: 20px;
+}
+
+label {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+select {
+    text-align: center;
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  appearance: none;
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid black;
+}
+
+select:hover {
+  border-color: #5F7A61;
+}
+
+select:focus {
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+        option {
+            font-size: 16px;
+        }
+
+        button{
+            align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: .375em;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #363636;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1rem;
+  height: 2.5em;
+  justify-content: center;
+  line-height: 1.5;
+  padding: calc(.5em - 1px) 1em;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+        }
+
+        button:hover{
+            border-color: #b5b5b5;
+    transform: scale(1.05);
+        }

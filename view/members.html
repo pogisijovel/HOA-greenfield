@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Details</title>
+    <link rel="stylesheet" href="/assets/css/members.css">
+
+</head>
+
+<body onload="restrictMaxInputLength()">
+
+    <div class="toolbar">
+        <h1 class="toolbar-title">Member Details</h1>
+    </div>
+
+
+    <div id="popup" class="popup">
+        <div class="label-input-pair">
+            <label for="memberName">Member Name:</label>
+            <input id="memberName" type="text" placeholder="Member Name">
+            <label for="spouseName">Spouse Name:</label>
+            <input id="spouseName" type="text" placeholder="Spouse Name">
+            <label for="occupation">Occupation:</label>
+            <input id="occupation" type="text" placeholder="Occupation">
+            <label for="age">Age:</label>
+            <input id="age" type="number" placeholder="Age">
+            <label for="birthday">Birthday:</label>
+            <input id="birthday" type="date" onchange="validateDate(this)" style="text-transform: uppercase;">
+            <label for="civilStatus">Civil Status:</label>
+            <input id="civilStatus" type="text" placeholder="Civil Status">
+        </div>
+        <div class="label-input-pair">
+            <label for="citizenship">Citizenship:</label>
+            <input id="citizenship" type="text" placeholder="Citizenship">
+            <label for="contactNum">Contact #:</label>
+            <input id="contactNum" type="number" placeholder="Contact #">
+            <label for="memberCategory">Member Category:</label>
+            <select id="memberCategory" name="memberCategory">
+                <option value="" disabled selected> Member Category </option>
+                <option value="Member">Member</option>
+                <option value="Renter">Renter</option>
+            </select>
+            <label for="memberStatus">Member Status:</label>
+            <select id="memberStatus" name="memberStatus">
+                <option value="" disabled selected> Member Status </option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="" disabled selected> Gender </option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <label for="bal">Lot Amortization:</label>
+            <input type="number" id="bal" required>
+        </div>
+        <div class="button-container">
+            <button id="addMember">Add Member</button>
+            <button class="clear-button" id="clear">Clear</button>
+            <button id="closePopup">Close</button>
+        </div>
+    </div>
+
+    <div id="searchBar" style="display: flex; align-items: center;">
+        <label for="searchInput" >Search:</label>
+        <input type="text" id="searchInput" placeholder="Search by Name" >
+        <div class="container">
+        <button id="add" onclick="togglePopup()">Add Member</button>
+        <button id="Gen">Generate Report</button>
+    </div>
+</div>
+    
+
+    <div id="quer">
+        <label for="categ" style="font-size: 16px;">Category:</label>
+        <select id="categ" name="Category" style="font-size: 14px;">
+            <option value="All">All</option>
+            <option value="Member">Member</option>
+            <option value="Renter">Renter</option>
+        </select>
+        <label for="stat" style="font-size: 16px;">Status:</label>
+        <select id="stat" name="Category" style="font-size: 14px;">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+        </select>
+    </div>
+
+    <div>
+        <table id="memberTable">
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="paginationControls"></div>
+
+    <script>
+        // Function to handle iframe interactivity
+function handleIframeInteraction() {
+    const iframes = document.querySelectorAll('iframe');
+
+    iframes.forEach((iframe) => {
+        // Add necessary interaction logic for each iframe
+        iframe.addEventListener('load', () => {
+            // Additional logic if needed
+        });
+    });
+}
+
+// Ensure iframe interaction is handled on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', handleIframeInteraction);
+
+// Additional bug fixes and improvements
+// ...
+
+
+        function validateDate(input) {
+            const selectedDate = new Date(input.value);
+            const currentDate = new Date();
+
+            // Remove the time portion from both dates
+            currentDate.setHours(0, 0, 0, 0);
+            selectedDate.setHours(0, 0, 0, 0);
+
+            // Calculate the difference in days
+            const dayDifference = Math.floor((currentDate - selectedDate) / (24 * 60 * 60 * 1000));
+
+            if (dayDifference < 0) {
+                alert("Selected date must be a past date. Please choose a valid date.");
+                input.value = ''; // Reset the input field
+            }
+        }
+
+        // Function to restrict the maximum input length to 11 digits for the "contactNum" input
+        function restrictMaxInputLength() {
+            const contactNumInput = document.getElementById("contactNum");
+
+            contactNumInput.addEventListener("input", function() {
+                if (this.value.length > 11) {
+                    this.value = this.value.slice(0, 11); // Truncate input to 11 characters
+                }
+            });
+        }
+
+   // Adjusted togglePopup function
+function togglePopup() {
+    const popup = document.getElementById("popup");
+    if (popup.style.display === "none" || popup.style.display === "") {
+        // Show the popup
+        popup.style.display = "grid";
+    } else {
+        // Hide the popup
+        popup.style.display = "none";
+    }
+}
+
+// Ensure popup functionality is handled on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    const popup = document.getElementById('popup');
+    const closePopupButton = document.getElementById('closePopup');
+
+    // Function to show the popup
+    function showPopup() {
+        popup.style.display = 'grid';
+    }
+
+    // Function to hide the popup
+    function hidePopup() { 
+        popup.style.display = 'none';
+    }
+
+    // Show the popup when needed (call this function where appropriate)
+    // showPopup();
+
+    // Close the popup when the close button is clicked
+    closePopupButton.addEventListener('click', hidePopup);
+});
+
+    </script>
+    <script type="module" src="../assets/js/member.js"></script>
+</body>
+</html>

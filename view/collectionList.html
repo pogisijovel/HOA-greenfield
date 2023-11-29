@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/collectionlist.css">
+    <title>Collection List</title>
+
+
+</head>
+<body>
+    <div class="toolbar">
+        <h1 class="toolbar-title">Collection List</h1>
+    </div>
+
+    
+      <div id="box">
+
+        <div class="sectoolbar">
+            <h3>        <div id="search">
+                <label for="searchBar">Search:</label>
+                <input type="text"  id="searchBar" placeholder="Search By Name">
+                
+              </div></h3>
+            <button id="popupMenu">Add Collection</button>
+        </div>
+
+
+
+        <table id="trans">
+            <tr>
+                <th>Transaction #</th>
+                <th>Member Name</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+      </div>
+      <div id="paginationControls"></div>
+
+      <div id="addCol">
+        <h3>ADD PAYMENT</h3>
+        <div class="form-container">
+            <div class="left-column">
+                <div class="form-group">
+                    <label for="tranNum">Transaction #:</label>
+                    <input type="number" id="tranNum" placeholder="Transaction #">
+                </div>
+              
+                <div class="form-group">
+                    <label for="memName">Member Name:</label>
+                    <input type="text" id="memName" placeholder="Member Name">
+                </div>
+                <div class="form-group">
+                    <label for="collName">Collector Name:</label>
+                    <input type="text" id="collName" placeholder="Collector Name">
+                </div>
+                <div class="form-group">
+                    <label for="tranDate">Date:</label>
+                    <input type="date" id="tranDate" onchange="validateDate(this)">
+                </div>
+            </div>
+            <div class="right-column">
+                <div id="colCat" style="text-align: center;">
+                    <table id="addColTable" class="centered-table">      
+                        <tr>
+                            <th>Select</th>
+                            <th>Collection ID</th>
+                            <th>Collection Name</th>
+                            <th>Fee</th>
+                        </tr>     
+                        <tr>
+                            <td></td>
+                        </tr>           
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="add">Add</button> 
+            <button id="cancel">Cancel</button>
+        </div>
+    </div>
+     
+      <div id="viewCollection">
+        <h3>Collection Details</h3>
+
+        <div class="form-col">
+            <label for="cdTransactionNumber">Transaction #:</label>
+            <input type="number" id="cdTransactionNumber" placeholder="Transaction #" disabled>
+          </div>
+          
+          <div class="form-col">
+            <label for="cdMemberID">Member ID:</label>
+            <input type="number" id="cdMemberID" placeholder="Member ID" disabled>
+          </div>
+          
+          <div class="form-col">
+            <label for="cdMemberName">Member Name:</label>
+            <input type="text" id="cdMemberName" placeholder="Member Name" disabled>
+          </div>
+
+          <div class="form-col">
+            <label for="cdCollectorName">Collector Name:</label>
+            <input type="text" id="cdCollectorName" placeholder="Collector Name" disabled>
+          </div>
+          
+          <div class="form-col">
+            <label for="cdTranDate">Date:</label>
+            <input type="date" id="cdTranDate" onchange="validateDate(this)" disabled>
+          </div>
+            <div id="cdCollectionTable" style="text-align: center;">
+                <table id="cdTable" class="centered-table" >      
+                    <tr>
+                        
+                        <th>Collection ID</th>
+                        <th>Collection Name</th>
+                        <th>Fee</th>
+                    </tr>     
+                    <tr>
+                       
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>           
+                </table>
+            </div>
+          
+
+          <div class="button-container">
+            <button id="viewColCancel">Close</button>
+            <!-- <button id="moveBin">Remove Collection</button> -->
+          </div>
+
+      </div>
+
+      <script type="module" src="../assets/js/collectionList.js"></script>
+      <script>
+        function validateDate(input) {
+        const selectedDate = new Date(input.value);
+        const currentDate = new Date();
+
+        // Remove the time portion from both dates
+        currentDate.setHours(0, 0, 0, 0);
+        selectedDate.setHours(0, 0, 0, 0);
+
+        // Calculate the difference in days
+        const dayDifference = Math.floor((currentDate - selectedDate) / (24 * 60 * 60 * 1000));
+
+        if (dayDifference < 0) {
+            alert("Selected date must be a past date. Please choose a valid date.");
+            input.value = ''; // Reset the input field
+        }
+        }
+      </script>
+</body>
+</html>

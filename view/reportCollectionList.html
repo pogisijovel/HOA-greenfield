@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection List Report Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .headtoolbar {
+            background-color: #1CAC78;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .toolbar-title {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #box {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            height: auto; /* Set height to auto */
+
+          
+        }
+
+        .sectoolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        }
+
+        .sectoolbar h3 {
+            margin: 0;
+        }
+
+        /* .sectoolbar input {
+            margin-left: 26.2%;
+            height: 30px;
+            width: 285px;
+        } */
+
+        .sectoolbar button {
+            margin-right: 10px;
+        }
+
+        label {
+            margin: 10px 0;
+            margin-left: 20px;
+        }
+
+        #generateReport {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            /* Position the button to the right */
+            margin-left: auto;
+        }
+
+        #generateReport:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            width: 20%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+        input{
+            width: 18%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #fff;
+        }
+        #iframe-container {
+            flex: 1;
+            position: relative;
+            margin: 20px;
+        }
+  
+        
+
+        /* Table header styles */
+        th {
+        background-color: #f2f2f2;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        font-weight: bold;
+        
+        }
+
+        /* Table cell styles */
+        td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ccc;
+
+        }
+
+        /* Alternating row colors */
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+
+        /* Hover effect on rows */
+        tr:hover {
+        background-color: #ddd;
+        }
+
+        #reset {
+            background-color: #ef6546; /* Background color of the button */
+            color: #fff; /* Text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Padding for the button */
+            border-radius: 10px; /* Rounded corners */
+            cursor: pointer; /* Show a pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth color transition on hover */
+        }
+
+        #reset:hover {
+            background-color: #ff9145; /* New background color on hover */
+        }
+
+        #table-container {
+            overflow-x: auto;
+            overflow-y: auto;
+            max-height: 460px; 
+            max-width: auto;/* Adjust the maximum height as needed */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-family: Arial, sans-serif;
+            white-space: nowrap;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-family: Arial, sans-serif;
+            
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+            z-index: 2; /* Ensure the header stays above the table content */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="headtoolbar">
+        <h1 class="toolbar-title">Collection List Report Generator</h1>
+    </div>
+
+    <div id="box">
+        <div class="sectoolbar">
+            <h3>Generate Report</h3>
+            
+            <button id="generateReport" >Generate Report</button>
+        </div>
+        <label for="searchName">Search Name:</label>
+        <input type="text" id="searchName" placeholder="Search Name">
+
+        <button id="find">Find</button>
+        
+        <label for="Select">Select Month:</label>
+        <select name="SelectMonth" id="Select">
+            <!-- <option value="" disabled selected>Select Month</option> -->
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          
+
+        <label for="selectYear">Select Year:</label>
+        <select id="selectYear">
+            <!-- <option value="" disabled selected>Select Year</option> -->
+            <option value=""></option>
+        </select>
+
+        <button id="reset" >Reset</button>
+        <button id="genReport">General Report</button>
+
+    </div>
+    <div id="iframe-container">
+        <div id="table-container">
+       <table id="showTable">
+        <thead>
+        <tr>
+            <th>Transaction #</th>
+            <th>Member Name</th>
+            <th>Collector</th>
+            <th>Date</th>
+            <th>Total Fee</th>
+            <th>Past Lot</br> Amort Ballance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        </tr>
+    </tbody>
+       </table>
+    </div>
+    </div>
+
+    <script type="module" src="../assets/js/collectionReport.js"></script>
+</body>
+</html>

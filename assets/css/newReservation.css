@@ -1,0 +1,161 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+/* .toolbar {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #5F7A61;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toolbar-title {
+    color: #5F7A61;
+    font-size: 40px;
+    font-style: bold;
+    margin: 0;
+} */
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the start of the cross axis (vertically) */
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto; /* Add margin for spacing */
+}
+
+#calendar,
+#reservationdiv,
+#contents {
+    flex: 1; 
+}
+
+#calendar {
+    max-width: 100%; /* Adjusted max-width to 100% for responsiveness */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 0 auto; /* Center the element horizontally */
+    border: #8ce98f solid;
+    margin-bottom: 20px; /* Added margin to separate from the next element */
+    margin-right: 5px;
+}
+
+#reservationdiv {
+    background-color: #5cdb95;
+    display: block;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%; /* Adjusted width to 100% for responsiveness */
+    max-width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the element horizontally */
+    max-height: 500px;
+    margin-right: 5px;
+}
+
+#contents {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    border: #8ce98f solid;
+    height: 550px;
+    width: 100%; /* Adjusted width to 100% for responsiveness */
+    max-width: 500px;
+    margin: 0 auto; /* Center the element horizontally */
+    max-height: 550px;
+}
+
+#butt {
+    margin-left: auto; /* Align to the right */
+    margin-right: 20px;
+    margin-top: -600px;
+}
+
+
+
+
+
+#rev {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #369460;
+}
+
+
+
+
+ #tableContainer {
+    height: 550px;
+    overflow-y: auto;
+}
+
+#reqTable {
+    width: 100%;
+    border-radius: 8px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    
+}
+
+thead {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+thead th {
+    text-align: center;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+
+#ses{
+    margin-top: 280px;
+    width: 200px;
+}
+
+h3{
+    text-align: center;
+}
+
+

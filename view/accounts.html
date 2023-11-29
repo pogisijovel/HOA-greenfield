@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/accounts.css">
+</head>
+<body onload="restrictMaxInputLength()">
+    <div class="toolbar">
+        <span><label>Accounts</label></span>
+    </div>
+    <button id="addAC" onclick="toggleFormContainer()">Add Account</button>
+
+
+   <div class="form-container">
+    <div class="form-box">
+        <h2 id="myHeading">Create Account</h2>
+        
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+
+            <label for="userType">Select User Type:</label>
+            <select id="userType">
+                <option value="member">Member</option>
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+            </select>
+      
+            <label for="memName">Member Name:</label>
+            <input type="text" id="memName" list="name">
+
+            <datalist id="names">
+            </datalist>
+
+            <label for="contactNum">Contact Number:</label>
+            <input type="number" id="contactNum" disabled>
+
+            <label for="password">Password:</label>
+            <div class="password-container">
+                <input type="password" id="password">
+                <i class="fas fa-eye password-icon" id="togglePassword"></i>
+            </div>
+
+            <label for="Cpassword">Confirm Password:</label>
+            <div class="password-container">
+                <input type="password" id="Cpassword" >
+                <i class="fas fa-eye password-icon" id="toggleCPassword"></i>
+            </div>
+
+            <button type="submit"  id="submit">Create Account</button>
+            <button type="close" id="close">Close</button>
+    </div>
+  </div>
+
+  <div id="searchBar">
+    <label for="searchInput">Search: </label>
+    <input type="text" id="searchInput" placeholder="Search by Name">
+</div>
+
+<div id="sortType">
+  <label for="user">User Type:</label>
+  <select id="user">
+    <option value="member">Member</option>
+    <option value="staff">Staff</option>
+    <option value="admin">Admin</option>
+  </select>
+</div>
+
+<div class="container">
+    <table id="accountsTable">
+      <thead>
+        <tr>      
+          <th>User Type</th>
+          <th>Email</th>
+          <th>Name</th>
+          <th>Contact Number</th>
+          <th>Reset Password</th>         
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+
+        </tr>
+      
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+  <div id="paginationControls"></div>
+ 
+<script>
+    function toggleFormContainer() {
+        var formContainer = document.querySelector('.form-container');
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+            formContainer.style.display = 'flex';
+        } else {
+            formContainer.style.display = 'none';
+            document.getElementById('addAC').textContent = "Add Account";
+        }
+    }
+
+    
+    function restrictMaxInputLength() {
+    const contactNumInput = document.getElementById("contactNum");
+
+    contactNumInput.addEventListener("input", function() {
+      if (this.value.length > 11) {
+        this.value = this.value.slice(0, 11); // Truncate input to 11 characters
+      }
+    });
+  }
+    // JavaScript to toggle password visibility
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+    });
+
+    const toggleCPassword = document.getElementById('toggleCPassword');
+    const cPasswordInput = document.getElementById('Cpassword');
+
+    toggleCPassword.addEventListener('click', function () {
+        const type = cPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        cPasswordInput.setAttribute('type', type);
+    });
+
+    const checkPasswords = () => {
+      const password = document.getElementById('password').value;
+      const cPassword = document.getElementById('Cpassword').value;
+
+      const match = password === cPassword;
+
+      document.getElementById('password').classList.toggle('match', match);
+      document.getElementById('Cpassword').classList.toggle('match', match);
+    };
+
+    // Add event listener to both password fields
+    document.getElementById('password').addEventListener('input', checkPasswords);
+    document.getElementById('Cpassword').addEventListener('input', checkPasswords);
+
+// Get a reference to the close button
+var closeButton = document.getElementById("close");
+
+// Get a reference to the form container
+var formContainer = document.querySelector(".form-container");
+
+// Add a click event listener to the close button
+closeButton.addEventListener("click", function() {
+    // Hide the form container when the close button is clicked
+    formContainer.style.display = "none";
+});
+    
+</script>
+
+
+<script type="module" src="../assets/js/accounts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Report Generator</title>
+    <link rel="stylesheet" href="/assets/css/reportProperty.css">
+</head>
+<body>
+    <div class="headtoolbar">
+        <h1 class="toolbar-title">Property Report Generator</h1>
+    </div>
+
+    <div id="box">
+        <div class="sectoolbar">
+            <button id="generateReport" >Generate Report</button>
+            <button id="reportB">Show General Report</button>
+        </div>
+
+        <label for="name">Search Name:</label>
+        <input type="text" name="" id="name">
+        <button id="fbutton">Find</button>
+
+        <label for="selecBlock">Select Block Number:</label>
+        <select name="SelectMonth" id="selecBlock">
+            <option value="" disabled selected>Block Number</option>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+          </select>
+          
+
+        <label for="selectStatus">Select Status:</label>
+        <select id="selectStatus">
+            <option value="" disabled selected>Select Status</option>
+            <option value="Owned" >Owned</option>
+            <option value="Vacant">Vacant</option>
+            <option value="Rented">Rented</option>
+        </select>
+        <button id="reset">Reset</button>
+        
+
+    </div>
+    <div id="iframe-container">
+       <table id="showTable">
+        <tr>
+            
+            <th>Owner Name</th>
+            <th>Lot Number</th>
+            <th>Block Number</th>
+            <th>Lot Size</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+        </tr>
+       </table>
+    </div>
+
+    <script type="module" src="../assets/js/reportProperty.js"></script>
+</body>
+</html>

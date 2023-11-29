@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Report Generator</title>
+    <link rel="stylesheet" href="/assets/css/reportReservation.css">
+</head>
+<body>
+    <div class="headtoolbar">
+        <h1 class="toolbar-title">Property Report Generator</h1>
+    </div>
+
+    <div id="box">
+        <div class="sectoolbar">
+            <button id="generateReport" >Generate Report</button>
+        </div>
+
+        <select name="SelectMonth" id="Select">
+            <option value="" disabled selected>Select Month</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          
+
+        <label for="selectYear">Select Year:</label>
+        <select id="selectYear">
+            <option value="" disabled selected>Select Year</option>
+        </select>
+
+        <button id="reset">Reset</button>
+
+    </div>
+    <div id="iframe-container">
+       <table id="showTable">
+        <tr>
+            <th>Reserved By</th>
+            <th>Event Name</th>
+            <th>Facility</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+        </tr>
+       </table>
+    </div>
+
+    <script type="module" src="../assets/js/reservationReport.js"></script>
+</body>
+</html>

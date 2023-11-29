@@ -1,0 +1,97 @@
+body{
+    width: 90%;
+    
+            }
+           /* Styles for the toolbar container */
+    .headtoolbar {
+        background-color: #1CAC78;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    /* Styles for the toolbar title */
+    .toolbar-title {
+        margin: 0;
+        font-size: 35px;
+        font-weight: bold;
+    }
+    
+    /* Styles for the table container */
+    #table {
+        width: 80%;
+        margin: 20px auto;
+    }
+    
+    /* Styles for the table */
+    #tableProp {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    /* Styles for table header cells */
+    #tableProp th {
+        background-color: #1CAC78;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+    
+    /* Styles for table data cells */
+    #tableProp td {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+    
+    /* Style for alternate row background color */
+    #tableProp tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    #searchBar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+    
+    /* Style for the label */
+    #searchInput label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: large;
+    }
+    
+    /* Style for the input */
+    #searchInput {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 300px;
+        box-sizing: border-box;
+    }
+    
+    /* Style for the placeholder text */
+    #searchInput::placeholder {
+        color: #999;
+    }
+    
+    #searchInput::-webkit-inner-spin-button,
+    #searchInput::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+    
+    /* Responsive Styles */
+    @media only screen and (max-width: 768px) {
+        #table {
+            width: 100%;
+        }
+    
+        #searchInput {
+            max-width: 100%;
+        }
+    }    

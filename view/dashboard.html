@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    
+</head>
+<body>
+<header>
+    <div>
+        <label>Hi, </label>
+        <label id="userType"></label>
+        <br>
+        <label id="Email"></label>
+        <button id="sidebarToggle" class="sidebar-toggle">☰</button>
+    </div>
+    <button id="signOut">Log Out</button>
+</header>
+
+<div class="container">
+    <div class="sidebar">
+        <div id="toolbar">
+            <span><label>MODULES</label></span>
+        </div>
+        
+        <div class="menu-item" id="member">
+            <span>Members Details</span>
+        </div>
+        
+        <div class="menu-item" id="collectionList">
+            <span>Collection List</span>
+        </div>
+
+        <div class="menu-item" id="property">
+            <span>Property List</span>
+        </div>
+        <div class="menu-item" id="reserve">
+            <span>Event Handler</span>
+        </div>
+        <div class="menu-item">
+            <select id="certificateSelect">
+                <option value="" disabled selected>Certificate</option>
+                <option value="building">Building Clearance</option>
+                <option value="membership">Membership</option>
+                <option value="owner">Title</option>
+            </select>
+        </div>
+
+        <div id="adminModule">
+            <div id="toolbar">
+                <span><label>Admin Modules</label></span>
+            </div>
+
+            <div class="menu-item" id="account">
+                <span>Accounts</span>
+            </div>
+
+            <div class="menu-item" id="colCat">
+                <span>Collection Category</span>
+            </div>
+
+            <div class="menu-item" id="individual">
+                <span>Individual Report</span>
+            </div>
+
+            <div class="menu-item" id="monthly">
+                <span>Monthly Report</span>
+            </div>
+
+            <div class="menu-item" id="yearly">
+                <span>Yearly Report</span>
+            </div>
+
+            <div class="menu-item" id="propertyrep">
+                <span>Property Report</span>
+            </div>
+
+            <div class="menu-item" id="reservation">
+                <span>Reservation Report</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="iframe-container">
+        <div class="welcome" id="welcome">
+            <h1>Welcome to Greenfield Homeowners Association</h1>
+        </div>
+
+        <div class="reservationRep-iframe-wrapper" id="iframeWrapper_reservationRep">
+            <iframe id="reservationRep-iframe" src=""></iframe>
+        </div>
+
+        <div class="propertyRep-iframe-wrapper" id="iframeWrapper_propertyRep">
+            <iframe id="propertyRep-iframe" src=""></iframe>
+        </div>
+
+        <div class="yearlyRep-iframe-wrapper" id="iframeWrapper_yearlyRep">
+            <iframe id="yearlyRep-iframe" src=""></iframe>
+        </div>
+
+        <div class="property-iframe-wrapper" id="iframeWrapper_property">
+            <iframe id="property-iframe" src=""></iframe>
+        </div>
+
+        <div class="monthlyRep-iframe-wrapper" id="iframeWrapper_monthlyRep">
+            <iframe id="monthlyRep-iframe" src=""></iframe>
+        </div>
+
+        <div class="individualRep-iframe-wrapper" id="iframeWrapper_individualRep">
+            <iframe id="individualRep-iframe" src=""></iframe>
+        </div>
+
+        <div class="colCat-iframe-wrapper" id="iframeWrapper_colCat">
+            <iframe id="colCat-iframe" src=""></iframe>
+        </div>
+
+        <div class="memberdetails-iframe-wrapper" id="iframeWrapper_memberdetails">
+            <iframe id="memberdetails-iframe" src=""></iframe>
+        </div>
+
+        <div class="collectionlist-iframe-wrapper" id="iframeWrapper_collectionlist">
+            <iframe id="collectionlist-iframe" src=""></iframe>
+        </div>
+
+        <div class="reservation-iframe-wrapper" id="iframeWrapper_reservation">
+            <iframe id="reservation-iframe" src=""></iframe>
+        </div>
+        <div class="building-iframe-wrapper" id="iframeWrapper_building">
+            <iframe id="building-iframe" src=""></iframe>
+        </div>
+        <div class="membership-iframe-wrapper" id="iframeWrapper_membership">
+            <iframe id="membership-iframe" src=""></iframe>
+        </div>
+        <div class="owner-iframe-wrapper" id="iframeWrapper_owner">
+            <iframe id="owner-iframe" src=""></iframe>
+        </div>
+
+        <div class="accounts-iframe-wrapper" id="iframeWrapper_accounts">
+            <iframe id="accounts-iframe" src=""></iframe>
+        </div>
+
+        <div class="collection-iframe-wrapper" id="iframeWrapper_collection">
+            <iframe id="collection-iframe" src=""></iframe>
+        </div>
+
+        <div class="category-iframe-wrapper" id="iframeWrapper_category">
+            <iframe id="category-iframe" src=""></iframe>
+        </div>
+
+        <div class="collectionReport-iframe-wrapper" id="iframeWrapper_collectionReport">
+            <iframe id="collectionReport-iframe" src=""></iframe>
+        </div>
+
+        
+
+        <div class="reservationReport-iframe-wrapper" id="iframeWrapper_reservationReport">
+            <iframe id="reservationReport-iframe" src=""></iframe>
+        </div>
+
+        <div class="individual-iframe-wrapper" id="iframeWrapper_individual">
+   		 <iframe id="individual-iframe" src=""></iframe>
+	    </div>
+
+        <div class="montly-iframe-wrapper" id="iframeWrapper_monthly">
+   		 <iframe id="monthly-iframe" src=""></iframe>
+	    </div>
+
+        <div class="yearly-iframe-wrapper" id="iframeWrapper_yearly">
+   		 <iframe id="yearly-iframe" src=""></iframe>
+	    </div>
+    </div>
+    
+
+    <script>
+  // Get all the menu items
+// Get all the menu items
+const menuItems = document.querySelectorAll('.menu-item');
+
+// Add click event listener to each menu item
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Construct the corresponding iframe wrapper ID based on the menu item's id
+        let iframeWrapperId;
+        if (item.id) {
+            // Special handling for the report menu items
+            switch (item.id) {
+                case "individual":
+                    iframeWrapperId = "iframeWrapper_individualRep";
+                    break;
+                case "monthly":
+                    iframeWrapperId = "iframeWrapper_monthlyRep";
+                    break;
+                case "yearly":
+                    iframeWrapperId = "iframeWrapper_yearlyRep";
+                    break;
+                case "reservation":
+                    iframeWrapperId = "iframeWrapper_reservationRep";
+                    break;
+                default:
+                    iframeWrapperId = 'iframeWrapper_' + item.id;
+            }
+        } else {
+            // Handle the case for menu items without an id, like the dropdown
+            const selectElement = item.querySelector('select');
+            if (selectElement) {
+                const selectedValue = selectElement.value;
+                iframeWrapperId = 'iframeWrapper_' + selectedValue;
+            }
+        }
+
+        // Only proceed if an iframeWrapperId is found
+        if (iframeWrapperId) {
+            const iframeWrapper = document.getElementById(iframeWrapperId);
+
+            // Show the iframe wrapper and hide others
+            document.querySelectorAll('.iframe-container > div').forEach(wrapper => {
+                wrapper.style.display = 'none';
+            });
+            iframeWrapper.style.display = 'block';
+        }
+    });
+});
+
+// Prevent the dropdown menus from closing when clicked inside
+const dropdowns = document.querySelectorAll('.menu-item select');
+dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+
+    // Update the iframe display when a dropdown item is selected
+    dropdown.addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+        const iframeWrapperId = 'iframeWrapper_' + selectedValue;
+        const iframeWrapper = document.getElementById(iframeWrapperId);
+
+        // Show the selected iframe and hide others
+        document.querySelectorAll('.iframe-container > div').forEach(wrapper => {
+            wrapper.style.display = 'none';
+        });
+        iframeWrapper.style.display = 'block';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.querySelector('.sidebar');
+    var toggleButton = document.getElementById('sidebarToggle');
+
+    toggleButton.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+    });
+});
+
+    </script>
+
+    <script type="module" src="../assets/credentials/dashboard.js"></script>
+</body>
+</html>

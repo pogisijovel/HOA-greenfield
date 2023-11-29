@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/login.css">
+</head>
+
+<body>
+
+    <div id="loginSelection">
+        <button onclick="showLoginForm('adminLoginForm')">Admin Login</button>
+        <button onclick="showLoginForm('memberLoginForm')">Member Login</button>
+    </div>
+
+    <div id="loginContainer">
+        <!-- Admin login form -->
+        <div id="adminLoginForm" class="form-container">
+            <h2>Admin Login</h2>
+            <form id="adminForm">
+                <!-- Add 'admin' prefix to input names -->
+                <div class="form-group">
+                    <label for="adminEmail">Email</label>
+                    <input type="email" placeholder="Enter Email" id="adminEmail" name="adminEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <div class="password-container">
+                        <input type="password" placeholder="Enter Password" id="adminPassword" name="adminPassword" required>
+                        <div class="eye-icon" onclick="togglePassword('adminPassword')">
+                            &#x1F441; <!-- Unicode for eye symbol -->
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="adminSubmit">Login</button>
+            </form>
+        </div>
+
+        <!-- Member login form -->
+        <div id="memberLoginForm" class="form-container">
+            <h2>Member Login</h2>
+            <form id="memberForm">
+                <!-- Add 'member' prefix to input names -->
+                <div class="form-group">
+                    <label for="memberEmail">Email</label>
+                    <input type="text" placeholder="Enter Email" id="memberEmail" name="memberEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="memberPassword">Password</label>
+                    <div class="password-container">
+                        <input type="password" placeholder="Enter Password" id="memberPassword" name="memberPassword" required>
+                        <div class="eye-icon" onclick="togglePassword('memberPassword')">
+                            &#x1F441; <!-- Unicode for eye symbol -->
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="memberSubmit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showLoginForm(formId) {
+            var forms = document.querySelectorAll('.form-container');
+            for (var i = 0; i < forms.length; i++) {
+                forms[i].style.display = 'none';
+            }
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        function validateLoginForm(formId) {
+            var form = document.getElementById(formId);
+            var emailInput = form.querySelector('input[name="' + formId + 'Email"]');
+            var passwordInput = form.querySelector('input[name="' + formId + 'Password"]');
+
+            // Your validation logic...
+
+            return false; // Prevent the form from submitting
+        }
+
+        function togglePassword(passwordFieldId) {
+            var passwordField = document.getElementById(passwordFieldId);
+            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+        }
+
+        // Event listener for form submission
+        document.getElementById('adminForm').addEventListener('submit', function (e) {
+            validateLoginForm('adminForm');
+            e.preventDefault();
+        });
+
+        document.getElementById('memberForm').addEventListener('submit', function (e) {
+            validateLoginForm('memberForm');
+            e.preventDefault();
+        });
+    </script>
+
+    <script type="module" src="../assets/credentials/loginForm.js"></script>
+
+</body>
+
+</html>

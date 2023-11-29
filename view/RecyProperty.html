@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Bin</title>
+
+    <!-- <style>
+        /* Styles for the toolbar container */
+        .headtoolbar {
+            background-color: #1CAC78; /* Set the background color */
+            color: #fff; /* Set the text color */
+            padding: 10px; /* Add some padding for spacing */
+            text-align: center; /* Center-align the text */
+        }
+
+        /* Styles for the toolbar title */
+        .toolbar-title {
+            margin: 0; /* Remove default margin for the title */
+            font-size: 35px; /* Set the font size */
+            font-weight: bold;
+        }
+
+         /* Styles for the table container */
+         #table {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        /* Styles for the table */
+        #tableProp {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Styles for table header cells */
+        #tableProp th {
+            background-color: #1CAC78; /* Header background color */
+            color: #fff; /* Header text color */
+            padding: 10px; /* Header cell padding */
+            text-align: center; /* Header text alignment */
+            border: 1px solid #ccc;
+        }
+
+        /* Styles for table data cells */
+        #tableProp td {
+            border: 1px solid #ccc; /* Border for data cells */
+            padding: 10px; /* Data cell padding */
+        }
+
+        /* Style for alternate row background color */
+        #tableProp tr:nth-child(even) { 
+            background-color: #f2f2f2;
+        }
+
+        #searchBar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        /* Style for the label */
+        #searchInput label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: large;
+        }
+
+        /* Style for the input */
+        #searchInput {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        /* Style for the placeholder text */
+        #searchInput::placeholder {
+            color: #999;
+        }
+        #searchInput::-webkit-inner-spin-button,
+        #searchInput::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+        }
+    </style> -->
+
+
+    <style>
+         body{
+width: 90%;
+
+        }
+        /* Styles for the toolbar container */
+.headtoolbar {
+    background-color: #1CAC78;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Styles for the toolbar title */
+.toolbar-title {
+    margin: 0;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* Styles for the table container */
+#table {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Styles for the table */
+#tableProp {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styles for table header cells */
+#tableProp th {
+    background-color: #1CAC78;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/* Styles for table data cells */
+#tableProp td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Style for alternate row background color */
+#tableProp tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#searchBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* Style for the label */
+#searchInput label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: large;
+}
+
+/* Style for the input */
+#searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+/* Style for the placeholder text */
+#searchInput::placeholder {
+    color: #999;
+}
+
+#searchInput::-webkit-inner-spin-button,
+#searchInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    #table {
+        width: 100%;
+    }
+
+    #searchInput {
+        max-width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="headtoolbar">
+        <h1 class="toolbar-title">Property Bin</h1>
+      </div>
+
+      
+        <div id="searchBar">
+            <p for="searchInput">Search</p>
+            <input type="number" id="searchInput" placeholder="Search by Lot Number">
+        </div>
+    
+
+<div id="table">
+      <table id="tableProp">
+        <tr>
+            <th>Owner ID</th>
+            <th>Owner Name</th>
+            <th>Lot Number</th>
+            <th>Block Number</th>
+            <th>Lot Size</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+</div>          
+    </table>
+</body>
+</html>

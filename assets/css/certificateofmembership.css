@@ -1,0 +1,173 @@
+body, h1, h2, h3, p, label {
+    margin: 0;
+    padding: 0;
+    
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+/* Define short size bond paper page size */
+.page {
+  width: 8.5in; /* Updated to 8.5 inches for short size bond paper */
+  height: 11in; /* Updated to 11 inches for short size bond paper */
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Make the .page element relative */
+}
+
+
+  /* Logo container styles */
+  .logo-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    /* Adjust top and right values to position the logo within the paper */
+  }
+
+  /* Logo image styles (adjust width and height as needed) */
+  .logo-container img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .content {
+    margin-top: 50%;
+    max-width: 8.27in;
+    width: 100%;
+    padding: 20px;
+  }
+
+  
+
+  h1 {
+    text-align: center;
+  }
+
+  .form {
+    margin-top: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  
+  input {
+    border: none;
+    box-shadow: 0px 1px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  
+  input:focus {
+    border: 1px solid #000; 
+  }
+
+  .certification {
+    padding: 20px;
+    margin-bottom: 5%;
+  }
+
+  .certification p {
+    margin-bottom: 15px;
+  }
+
+  .certification h2 {
+    margin-bottom: 5%;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  h3 {
+    font-size: 1.1em;
+    margin-top: 15px;
+    margin-top: 15%;
+  }
+
+  .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+button:active {
+  background: var(--color);
+  color: #fff;
+}
+
+  p {
+    text-align: justify;
+  }
+
+  .indented-paragraph {
+    text-indent: 40px; /* Adjust the value to change the indentation */
+  }
+
+  #newMemberName {
+    margin-bottom: 5%;
+  }
+
+  #adminHeadContainer input {
+    width: 41%; 
+  }
+  #AdminHead{
+  margin-left: 13%;
+  }
+#memName{
+  text-align: left;
+  width: 200px;
+}
+
+#admin{
+  border-bottom: 1px #000 solid;
+}

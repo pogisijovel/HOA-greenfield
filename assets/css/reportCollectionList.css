@@ -1,0 +1,276 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+}
+
+.headtoolbar {
+    background-color: transparent;
+    color: black;
+    border: 1px solid #5F7A61;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toolbar-title {
+    color: #5F7A61;
+    font-size: 40px; 
+    font-style: bold;
+    margin: 0;
+}
+
+#box {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    height: auto; 
+}
+
+.sectoolbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.sectoolbar h3 {
+    margin: 0;
+}
+
+
+.sectoolbar button {
+    margin-right: 10px;
+    background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+}
+
+.sectoolbar button:hover{
+    border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+label {
+    margin: 10px 0;
+    margin-left: 20px;
+}
+
+
+select {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+}
+input{
+    width: 18%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+}
+#iframe-container {
+    flex: 1;
+    position: relative;
+    margin: 20px;
+}
+
+
+
+
+
+/* Global styles */
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 10px 0;
+font-family: Arial, sans-serif;
+white-space: nowrap;
+height: 90%;
+}
+
+/* Table container with overflow */
+#table-container {
+overflow-x: auto; 
+max-height: 460px;
+position: relative; /* Added for stacking context */
+}
+#table-container {
+    overflow-x: auto;
+    max-height: 460px;
+    position: relative; /* Added for stacking context */
+}
+
+/* Custom styling for Webkit browsers (Chrome, Safari) */
+#table-container::-webkit-scrollbar {
+    width: 2px; /* Set width of the scrollbar */
+    height: 5px;
+}
+
+#table-container::-webkit-scrollbar-thumb {
+    background-color: #1CAC78; /* Set color of the thumb */
+    border-radius: 6px; /* Set border radius of the thumb */
+}
+
+#table-container::-webkit-scrollbar-track {
+    background-color: #f2f2f2; /* Set color of the track */
+}
+
+/* Custom styling for Firefox */
+#table-container {
+    scrollbar-width: thin; /* Set width of the scrollbar */
+    scrollbar-color: #1CAC78 #f2f2f2; /* Set color of the thumb and track */
+}
+
+
+/* Table cell styles */
+td, th {
+text-align: left;
+padding: 8px;
+border: 1px solid #ccc;
+}
+
+/* Header styles */
+thead th {
+position: -webkit-sticky;
+position: sticky;
+top: 0;
+text-align: center;
+padding: 10px;
+background-color: #1CAC78;
+color: white;
+font-weight: bold;
+border-bottom: 1px solid #ccc; /* Border on the bottom to separate headers */
+z-index: 2;
+}
+
+thead th::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #1CAC78;
+z-index: -1;
+}
+
+/* Alternating row colors */
+tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+/* Hover effect on rows */
+tr:hover {
+background-color: #ddd;
+}
+
+/* Reset button */
+#reset {
+background-color: #ef6546;
+color: #fff;
+border: none;
+padding: 10px 20px;
+border-radius: 10px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+#reset:hover {
+background-color: #ff9145;
+}
+
+#genReport{
+background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+margin-right: auto;
+}
+
+#genReport:hover{
+border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}
+
+#selectYear {
+position: sticky;
+width: auto;
+}
+#Select{
+position: sticky;
+width: auto;
+}
+
+#find{
+background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+border-color: #adb1b8 #a2a6ac #8d9096;
+border-style: solid;
+border-width: 1px;
+border-radius: 3px;
+box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+box-sizing: border-box;
+color: #0f1111;
+cursor: pointer;
+display: inline-block;
+font-family: "Amazon Ember",Arial,sans-serif;
+font-size: 14px;
+height: 29px;
+outline: 0;
+overflow: hidden;
+padding: 0 11px;
+text-align: center;
+text-decoration: none;
+text-overflow: ellipsis;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+white-space: nowrap;
+}
+
+#find:hover{
+border-color: #a2a6ac #979aa1 #82858a;
+transform: scale(1.05);
+}

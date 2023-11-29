@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Report</title>   
+    <link rel="stylesheet" href="/assets/css/memberRenterReport.css">
+</head>
+<body>
+    <div class="toolbar">
+        <h1 class="toolbar-title">Generate Report</h1>
+    </div>
+
+    <div id="quer">
+        <label for="stat" style="width: 150px; display: inline-block; vertical-align: middle;">Property Status:</label>
+        <select id="stat" name="Category" style="display: inline-block; vertical-align: middle;">
+            <option value="Owned">Owned</option>
+            <option value="Rented">Rented</option>
+            <option value="Vacant">Vacant</option>
+        </select>
+        <button id="add">Generate Report</button>
+    </div>
+    
+
+    <div id="form-container">
+        
+        <table id="propertyTable">
+            <tr>
+                <th>Name</th>
+                <th>Property Status</th>
+                <th colspan="3">Property <br>Lot/Block/Lot Size Number</th>
+            </tr>
+            <tr>
+                <td> </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div id="paginationControls"></div>
+        <script type="module" src="../assets/js/memberRenterReport.js"></script>
+    </div>
+</body>
+</html>

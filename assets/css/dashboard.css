@@ -1,0 +1,246 @@
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    overflow: hidden;
+  }
+  
+  header {
+    background-color: #5F7A61; 
+    color: white;
+    padding: 1rem 2rem; /* Use rem for padding to be relative to the root font-size */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line on smaller screens */
+}
+
+/* Adjust header layout for tablets */
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 0.5rem 1rem; /* Reduce padding for smaller screens */
+    /* You can also adjust font-sizes, logo sizes etc. here */
+  }
+}
+
+/* Adjust header layout for mobile */
+@media only screen and (max-width: 480px) {
+  header {
+    justify-content: center; /* Stack the items vertically */
+    padding: 0.5rem; /* Even smaller padding */
+  }
+
+  header > * { /* Targets all direct children of header */
+    flex: 0 0 100%; /* Make children take full width */
+    justify-content: center; /* Center content */
+    margin-top: 0.5rem; /* Add some margin at the top of each item */
+  }
+}
+
+  
+  #signOut {
+    padding: 5px 15px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  #signOut:hover {
+    background-color: white;
+    color: #0056b3;
+  }
+  
+  .container {
+    display: flex;
+    height: calc(100vh - 50px); 
+}
+  
+  .sidebar {
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    width: fixed; /* Note: 'width: fixed;' is not a valid CSS property */
+    height: calc(100vh - 50px);
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    flex-shrink: 1;
+    border-right: 1px solid #5F7A61;
+  }
+  
+  /* Sidebar items with more modern styling */
+  .menu-item {
+    background-color: transparent;
+    color: #333;
+    padding: 8px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease; 
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    border: 1px solid #ddd; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-item:hover {
+    background-color: #e8e8e8;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .sidebar {
+        width: 100%; /* Full width for better use of space on small screens */
+        max-height: calc(100vh - 50px); /* Max height minus the header/footer height */
+        padding: 10px; /* Reduced padding to maximize space */
+        overflow-y: scroll; /* Enable vertical scrolling */
+        position: static; /* Reset position to static so it doesn't stick and allows scrolling */
+        border-right: none; /* Remove the border if it doesn't fit the mobile layout */
+    }
+
+    .menu-item {
+        font-size: 16px; /* Larger font size for readability on small screens */
+        padding: 12px; /* Larger padding for easier touch interaction */
+        margin-bottom: 10px; /* Increase margin for better separation */
+    }
+}
+
+
+  
+  /* Subtle hover effect for dropdown */
+  .dropdown-content div:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .iframe-container {
+    flex-grow: 1;
+    height: 100%;
+    overflow: hidden; 
+    position: relative; 
+  }
+  
+  .iframe-wrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow-y: auto;
+  }
+  /* Scrollbars styled to be less intrusive */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+  }
+  /* Style the select dropdown */
+  select {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+  }
+  /* Labels within header for better visibility */
+  #headd label {
+    color: white;
+    margin-right: 10px;
+  }
+  
+  /* Styles for the toggle button */
+  .sidebar-toggle {
+  display: none; /* Initially hidden */
+  background: #5F7A61;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  }
+  
+  /* When on small screens, display the toggle button */
+  @media screen and (max-width: 768px) {
+  .sidebar-toggle {
+  display: block; /* Show the toggle button */
+  }
+  
+  .sidebar {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  }
+  
+  .sidebar.active {
+  width: 250px; /* Adjust width as per your design */
+  }
+  }
+  
+  
+  #welcome {
+    overflow: hidden;
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full height of the viewport */
+  margin: 0; /* Reset any default margins */
+  background-color: #fff; /* Set background color to white or any desired color */
+  color: #5F7A61; /* Set the text color as requested */
+  font-size: 2em; /* Increase font size for better visibility */
+  font-family: 'Poppins', sans-serif; /* Set font-family to Poppins */
+  text-align: center;
+  }
+  
+  #welcome h1 {
+  overflow: hidden;
+  margin: 0; 
+  font-size: 55px;
+  margin-bottom: 10%;
+  }
+  
+  /* Responsive adjustments for tablets */
+  @media screen and (max-width: 768px) {
+  #welcome {
+  font-size: 1.5em; /* Slightly smaller font size */
+  }
+  
+  #welcome h1 {
+  font-size: 40px; /* Adjust h1 font size for tablet screens */
+  }
+  }
+  
+  /* Responsive adjustments for mobile devices */
+  @media screen and (max-width: 480px) {
+  #welcome {
+  font-size: 1em; /* Smaller font size for mobile */
+  padding: 10px; /* Less padding on smaller screens */
+  }
+  
+  #welcome h1 {
+  font-size: 30px; /* Adjust h1 font size for mobile screens */
+  margin-bottom: 5%; /* Less margin on the bottom */
+  }
+  }
