@@ -13,16 +13,17 @@ const memberSubmitB = document.getElementById('memberSubmit');
 
 const userCollectionRef = collection(db, "Accounts");
 
+
 function handleDashboard(email, userType) {
   // Create a URL with email and userType as query parameters
-  const url = `http://127.0.0.1:5500/view/dashboard.html?email=${encodeURIComponent(email)}&userType=${encodeURIComponent(userType)}`;
+  const url = `http://127.0.0.1:5501/view/dashboard.html?email=${encodeURIComponent(email)}&userType=${encodeURIComponent(userType)}`;
   // Use window.location.replace() to prevent going back to the login form
   window.location.replace(url);
 }
 
 function handleMemberView(memberName) {
   // Create a URL with memID as a query parameter
-  const url = `http://127.0.0.1:5500/view/memberView.html?&memberName=${encodeURIComponent(memberName)}`;
+  const url = `http://127.0.0.1:5501/view/memberView.html?&memberName=${encodeURIComponent(memberName)}`;
   // Use window.location.replace() to prevent going back to the login form
   window.location.replace(url);
 }
@@ -62,7 +63,7 @@ async function adminSignIn() {
       console.log("Login Success");
       handleDashboard(email, userType);
     } catch (error) {
-      alert("Login Failed");
+      alert("Login Failed. Please check your email and password and try again.");
       console.log(`There was an error: ${error}`);
       console.log(error);
     }
@@ -84,7 +85,6 @@ async function memberSignIn() {
   }
 
   const userDoc = querySnapshot.docs[0];
-  const userType = userDoc.data().userType;
   const memberName = userDoc.data().memberName;
 
   try {
@@ -92,7 +92,7 @@ async function memberSignIn() {
     console.log("Login Success");
     handleMemberView(memberName);
   } catch (error) {
-    alert("Login Failed");
+    alert("Login Failed. Please check your email and password and try again.");
     console.log(`There was an error: ${error}`);
     console.log(error);
   }

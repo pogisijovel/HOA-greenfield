@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,116 +9,103 @@
 
 
 </head>
+
 <body>
 
     <div class="headtoolbar">
         <h1 class="toolbar-title">Collection Category</h1>
-      </div>
-<div id="collections-container">
-      <div id="form-container">
-<div id="form-column-1">
-    <div class="box">
-        
-        <h2 id="tt">Add Collection New Category</h2>
-        <div id="magin">
-            <label for="CollectionID" >Collection ID:</label>
-            <input id="CollectionID" type="text" placeholder="Collection ID"><br>
-        
-            <label for="collectionName" >Collection Name:</label>
-            <input id="collectionName" type="text" placeholder="Collection Name"><br>
+    </div>
+    <div id="collections-container">
+        <div id="form-container">
+            <div id="form-column-1">
+                <div class="box">
 
-            <label for="due">Due:</label>
-            <input id="due" type="text" placeholder="due" list="dueOptions">
-            <datalist id="dueOptions">
-                <option value="Monthly">
-                <option value="Yearly">
-            </datalist>
-         
-            <label for="Fee" >Fee:</label>
-            <input id="Fee" type="number"  placeholder="Fee"><br>
+                    <h2 id="tt">Add Collection New Category</h2>
+                    <div id="magin">
+                        <label for="CollectionID">Collection ID:</label>
+                        <input id="CollectionID" type="text" placeholder="Collection ID"><br>
 
-            
-            <label for="Status" >Status:</label>
-            <select id="Status" name="Status">
-            <option value="" disabled selected>--- Select Status ---</option>
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
-              </select>
-            
-            <div id="buttom">
-                <button id="add">Add</button>
+                        <label for="collectionName">Collection Name:</label>
+                        <input id="collectionName" type="text" placeholder="Collection Name"><br>
+
+                        <label for="Fee">Fee:</label>
+                        <input id="Fee" type="number" placeholder="Fee"><br>
+
+                        <label for="Status">Status:</label>
+                        <select id="Status" name="Status">
+                            <option value="" disabled selected>--- Select Status ---</option>
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+                        </select>
+
+                        <div id="buttom">
+                            <button id="add">Add</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="form-column-2">
+                <div class="toolbar">
+
+                    <span>Collection Categories</span>
+
+                </div>
+                <div id="collections">
+
+                    <table id="bleta">
+                        <tr>
+                            <th>Collection ID</th>
+                            <th>Collection Name</th>
+                            <th>Fee</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        <tr>
+                            <td>123123</td>
+                            <td>123123</td>
+                            <td>213123</td>
+                            <td>123123</td>
+                            <td>12321</td>
+                        </tr>
+                    </table>
+
+                </div>
             </div>
         </div>
-            </div>
-      
-    </div> 
-      
-    <div id="form-column-2">
-      <div class="toolbar">
-        
-          <span>Collection Categories</span>
-        
-      </div>
-      <div id="collections">
+    </div>
 
-        <table id="bleta">
-            <tr>
-                <th>Collection ID</th>
-                <th>Collection Name</th>
-                <th>Fee</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            <tr>
-                <td>123123</td>
-                <td>123123</td>
-                <td>213123</td>
-                <td>123123</td>
-                <td>12321</td>
-            </tr>
-        </table>
+    <div class="popup">
+
+        <label for="popCollectionID">Collection ID:</label>
+        <input id="popCollectionID" type="text" placeholder="Collection ID" disabled><br>
+
+        <label for="popcollectionName">Collection Name:</label>
+        <input id="popcollectionName" type="text" placeholder="Collection Name" disabled><br>
+
+        <label for="popFee">Fee:</label>
+        <input id="popFee" type="number" placeholder="Fee" disabled><br>
+
+        <label for="popStatus">Status:</label>
+        <input id="popStatus" type="text" placeholder="Status" disabled list="stat"><br>
+        <datalist id="stat">
+            <option value="Active">
+            <option value="Inactive">
+        </datalist>
+
+        <div>
+            <button class="remove-btn" id="edit">Edit</button>
+            <button class="remove-btn" id="save" disabled>Save</button>
+            <button class="close-btn" id="close">Close</button>
+
+
+        </div>
 
     </div>
-    </div>
-</div>
-</div>
 
-<div class="popup">
 
-    <label for="popCollectionID" >Collection ID:</label>
-    <input id="popCollectionID" type="text" placeholder="Collection ID" disabled><br>
-
-    <label for="popcollectionName" >Collection Name:</label>
-    <input id="popcollectionName" type="text" placeholder="Collection Name"disabled><br>
-
-    <label for="popDue" >Due:</label>
-    <input id="popDue" type="text" placeholder="due" list="dueOptions" disabled>
-            <datalist id="dueOptions">
-                <option value="Monthly">
-                <option value="Yearly">
-            </datalist>
- 
-    <label for="popFee" >Fee:</label>
-    <input id="popFee" type="number"  placeholder="Fee"disabled><br>
-
-    <label for="popStatus" >Status:</label>
-    <input id="popStatus" type="text"  placeholder="Status" disabled list="stat"><br>
-    <datalist id="stat">
-        <option value="Active">
-        <option value="Inactive">
-    </datalist>
-   
-    <div>
-    <button  class="remove-btn" id="edit">Edit</button>
-    <button  class="remove-btn" id="save" disabled>Save</button>
-    <button class="close-btn" id="close">Close</button>
-    
-    
-    </div>
-    
-</div>
-    
-
-      <script type="module" src="../assets/js/collectionCategory.js"></script>
+    <script type="module" src="../assets/js/collectionCategory.js"></script>
 </body>
+
 </html>

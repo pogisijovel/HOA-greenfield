@@ -154,6 +154,7 @@ button:active {
   }
 
   #newMemberName {
+    text-align: left;
     margin-bottom: 5%;
   }
 
@@ -166,6 +167,10 @@ button:active {
 #memName{
   text-align: left;
   width: 200px;
+}
+
+#adminHeadName{
+border-bottom: 1px solid;
 }
 
 #admin{

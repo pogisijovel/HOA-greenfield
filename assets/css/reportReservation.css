@@ -39,7 +39,16 @@ body {
         margin: 0;
     }
     
-    
+    #gene {
+        background-color: rgb(30, 198, 75);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        }
+
     .sectoolbar button {
         margin-right: 10px;
         background-image: linear-gradient(#f7f8fa ,#e7e9ec);

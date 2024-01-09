@@ -132,19 +132,57 @@ body{
 }
 
 /* Container for the table to enable horizontal scrolling on small screens */
-.table-container {
+#table-container {
     width: 100%;
+    display: flex;
     overflow-x: auto; /* Enables horizontal scrolling */
     margin-top: 50px;
   }
   
-  table {
-    width: 100%; /* Full width to fit the container */
+  #eventsTable {
+    width: 70%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 5%;
+    margin-right: 50px;
+  }
+  #eventsTable thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+#eventsTable th {
+  width: 14.28%;
+  position: sticky;
+  top: 0;
+}
+#eventsTable tbody {
+  display: block;
+  overflow-y: auto;
+  max-height: 500px; 
+}
+#eventsTable tr {
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+#eventsTable td {
+  width: 14.28%; /* 100% / 7 columns */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+  
+  #reqTable {
+    width: 30%; /* 30% of the container width */
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin-bottom: 5%;
   }
+  
   
   th, td {
     padding: 12px;
@@ -178,7 +216,7 @@ body{
   }
   
   td button:hover {
-    /* ... existing styles ... */
+    cursor: pointer;
   }
   
   /* Responsive table styling for smaller devices */

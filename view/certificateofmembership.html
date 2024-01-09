@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
   <title>Certificate of Membership</title>
   <link rel="stylesheet" href="/assets/css/certificateofmembership.css">
 </head>
+
 <body>
 
   <div class="button-container">
@@ -15,38 +17,45 @@
       <span class="download-icon" aria-hidden="true">⬇</span>
       Downlaod
     </button>
-    
+
   </div>
   <div class="page">
     <div class="logo-container">
-      <img src="/assets/img/Logo.jpg" alt="Greenfield HOA Logo">
+
     </div>
     <div class="container">
       <div class="content">
         <h1>Certificate of Membership</h1>
-        
+
         <div class="form">
-          <label for="newMemberName">Last name of New Member:</label>
-          <input type="text" id="newMemberName" placeholder="">
+
+
           <div class="certification">
-            
+
             <p>
-              Dear Mr./Ms. <span id="exampleName">____________</span>,<br><br>
-          
-                <p class="indented-paragraph">
-              I am pleased to officially certify your membership in the Greenfield Homeowners Association (HOA). Your acceptance was confirmed on <span id="acceptanceDate">[Date of Acceptance]</span>. As a valued member, you have access to all HOA privileges and responsibilities outlined in our governing documents, including participation in meetings, voting on important matters, and enjoying common areas and amenities.<br><br>
-            
-              Please keep this certification letter for your records, as it may be required for administrative and legal purposes related to your Greenfield HOA membership. Welcome to our community! Your involvement will greatly contribute to our shared goals of enhancing the Greenfield neighborhood.<br><br>
-            
-              If you have any questions or need further information, please don't hesitate to contact our HOA office.<br><br>
-            
+              Dear Mr./Ms. <input type="text" id="newMemberName" placeholder="" list="names">
+              <datalist id="names"></datalist>
+
+            <p class="indented-paragraph">
+              I am pleased to officially certify your membership in the Greenfield Homeowners Association (HOA). Your
+              acceptance was confirmed on <span id="acceptanceDate">[Date of Acceptance]</span>. As a valued member, you
+              have access to all HOA privileges and responsibilities outlined in our governing documents, including
+              participation in meetings, voting on important matters, and enjoying common areas and amenities.<br><br>
+
+              Please keep this certification letter for your records, as it may be required for administrative and legal
+              purposes related to your Greenfield HOA membership. Welcome to our community! Your involvement will
+              greatly contribute to our shared goals of enhancing the Greenfield neighborhood.<br><br>
+
+              If you have any questions or need further information, please don't hesitate to contact our HOA
+              office.<br><br>
+
               Congratulations on becoming a Greenfield Homeowners Association member.
             </p>
-            
-            
+
+
             <h3>
               <div id="adminHeadContainer">
-                <input type="text" id="adminHead" placeholder="">
+                <input type="text" id="adminHeadName" placeholder="" oninput="convertToUppercase(this)">
                 <label for="adminHead" id="AdminHead">Greenfield head</label>
               </div>
             </h3>
@@ -57,34 +66,42 @@
   </div>
 
   <script>
-    window.onload = function() {
+
+    function convertToUppercase(inputElement) {
+      inputElement.value = inputElement.value.toUpperCase();
+    }
+    window.onload = function () {
       document.getElementById('newMemberName').addEventListener('input', function () {
         let newName = this.value;
         let currentDate = new Date().toLocaleDateString();
         document.getElementById('acceptanceDate').innerText = ' ' + currentDate + ' ';
         document.getElementById('exampleName').innerText = newName;
       });
-  
-      document.getElementById('downloadButton').addEventListener('click', function () {
-  const pdfContainer = document.querySelector('.page');
-  const pdfOptions = {
-    margin: 0,
-    filename: 'Certificate of membership.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { format: 'letter', orientation: 'portrait' } 
-  };
 
-  html2pdf().from(pdfContainer).set(pdfOptions).save();
-});
+      document.getElementById('downloadButton').addEventListener('click', function () {
+
+
+        const pdfContainer = document.querySelector('.page');
+        const pdfOptions = {
+          margin: 0,
+          filename: 'Certificate of membership.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().from(pdfContainer).set(pdfOptions).save();
+
+
+      });
+      document.getElementById("memberLabel").style.display = "block";
+      document.getElementById("newMemberName").style.display = "inline";
     }
-const inputElement = document.getElementById('newMemberName');
-inputElement.addEventListener('keypress', function () {
-  this.style.outline = 'none';
-});
+
 
   </script>
-  
-  
+
+  <script type="module" src="../assets/js/forms.js"></script>
 </body>
+
 </html>

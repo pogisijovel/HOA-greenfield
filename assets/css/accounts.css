@@ -19,6 +19,14 @@ body {
     font-weight: bold;
 
 }
+#accountID::-webkit-inner-spin-button,
+#accountID::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#find{
+  margin-left: 5px;
+}
 
 #addAC {
   background-image: linear-gradient(#f7f8fa ,#e7e9ec);

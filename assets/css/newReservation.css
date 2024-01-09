@@ -1,7 +1,7 @@
 body {
     font-family: 'Calibri', sans-serif;
     background-color: transparent;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 /* .toolbar {
@@ -55,7 +55,7 @@ body {
     max-width: 250px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto; /* Center the element horizontally */
-    max-height: 500px;
+    max-height: 540px;
     margin-right: 5px;
 }
 
@@ -64,11 +64,11 @@ body {
     padding: 10px;
     border-radius: 10px;
     border: #8ce98f solid;
-    height: 550px;
+    height: 575px;
     width: 100%; /* Adjusted width to 100% for responsiveness */
     max-width: 500px;
     margin: 0 auto; /* Center the element horizontally */
-    max-height: 550px;
+   max-height: 575px;
 }
 
 #butt {
@@ -159,3 +159,42 @@ h3{
 }
 
 
+@media only screen and (max-width: 600px) {
+    .container {
+        align-items: flex-start; /* Align items to the start for mobile view */
+    }
+
+    #calendar,
+    #reservationdiv,
+    #contents {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #calendar,
+    #reservationdiv,
+    #contents {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #reservationdiv {
+        max-width: none;
+        
+    }
+    
+
+    #butt {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    #tableContainer {
+        height: auto;
+    }
+
+    .container {
+        flex-direction: column; /* Set back to column layout for small screens */
+    }
+}

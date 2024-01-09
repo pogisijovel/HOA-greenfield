@@ -1,11 +1,7 @@
-
 import { doc, deleteDoc,getDocs, query, where,addDoc,collection} from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 import { db } from "../credentials/firebaseModule.js";
-
-
 const eventDB = collection(db, "EventDatabase");
 const eventsSnapshot = await getDocs(collection(db, 'EventDatabase'));
-
 const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
   daysContainer = document.querySelector(".days"),
@@ -27,12 +23,10 @@ const calendar = document.querySelector(".calendar"),
   addEventTo = document.querySelector(".event-time-to "),
   addEventSubmit = document.querySelector(".add-event-btn "),
   addEventClear = document.querySelector(".clear-event-btn ");
-
 let today = new Date();
 let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
-
 const months = [
   "January",
   "February",
@@ -47,29 +41,9 @@ const months = [
   "November",
   "December",
 ];
-
-// const eventsArr = [
-//   {
-//     day: 13,
-//     month: 11,
-//     year: 2022,
-//     events: [
-//       {
-//         title: "Event 1 lorem ipsun dolar sit genfa tersd dsad ",
-//         time: "10:00 AM",
-//       },
-//       {
-//         title: "Event 2",
-//         time: "11:00 AM",
-//       },
-//     ],
-//   },
-// ];
-
 const eventsArr = [];
 getEvents();
 console.log(eventsArr);
-
 //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
 function initCalendar() {
   const firstDay = new Date(year, month, 1);
@@ -79,15 +53,11 @@ function initCalendar() {
   const lastDate = lastDay.getDate();
   const day = firstDay.getDay();
   const nextDays = 7 - lastDay.getDay() - 1;
-
   date.innerHTML = months[month] + " " + year;
-
   let days = "";
-
   for (let x = day; x > 0; x--) {
     days += `<div class="day prev-date">${prevDays - x + 1}</div>`;
   }
-
   for (let i = 1; i <= lastDate; i++) {
     //check if event is present on that day
     let event = false;
@@ -121,14 +91,12 @@ function initCalendar() {
       }
     }
   }
-
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="day next-date">${j}</div>`;
   }
   daysContainer.innerHTML = days;
   addListner();
 }
-
 //function to add month and year on prev and next button
 function prevMonth() {
   month--;
@@ -138,7 +106,6 @@ function prevMonth() {
   }
   initCalendar();
 }
-
 function nextMonth() {
   month++;
   if (month > 11) {
@@ -147,12 +114,9 @@ function nextMonth() {
   }
   initCalendar();
 }
-
 prev.addEventListener("click", prevMonth);
 next.addEventListener("click", nextMonth);
-
 initCalendar();
-
 //function to add active on day
 function addListner() {
   const days = document.querySelectorAll(".day");
@@ -201,14 +165,12 @@ function addListner() {
     });
   });
 }
-
 todayBtn.addEventListener("click", () => {
   today = new Date();
   month = today.getMonth();
   year = today.getFullYear();
   initCalendar();
 });
-
 dateInput.addEventListener("input", (e) => {
   dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
   if (dateInput.value.length === 2) {
@@ -223,9 +185,7 @@ dateInput.addEventListener("input", (e) => {
     }
   }
 });
-
 gotoBtn.addEventListener("click", gotoDate);
-
 function gotoDate() {
   console.log("here");
   const dateArr = dateInput.value.split("/");
@@ -239,7 +199,6 @@ function gotoDate() {
   }
   alert("Invalid Date");
 }
-
 //function get active day day name and date and update eventday eventdate
 function getActiveDay(date) {
   const day = new Date(year, month, date);
@@ -247,24 +206,15 @@ function getActiveDay(date) {
   eventDay.innerHTML = dayName;
   eventDate.innerHTML = date + " " + months[month] + " " + year;
 }
-
-
-
 async function updateEvents(date) {
   let events = "";
-
-
   const q = query(eventDB, where("date", "==", date));
   const querySnapshot = await getDocs(q);
-
   if (!querySnapshot.empty) {
     querySnapshot.forEach((doc) => {
       const eventData = doc.data();
-
-      // Check if eventData is defined and has the expected structure
       if (eventData && eventData.title && eventData.facility && eventData.time) {
-        const eventId = doc.id; // Unique identifier for the event
-
+        const eventId = doc.id;
         events += `<div class="event" data-event-id="${eventId}">
         <div class="title">
           <div class="title-info">
@@ -279,100 +229,68 @@ async function updateEvents(date) {
       </div>
       `;
       } else {
-        // Log an error message if the expected structure is not present
         console.error("Invalid event data structure:", eventData);
       }
     });
   }
-
   if (events === "") {
     events = `<div class="no-event">
             <h3>No Events</h3>
         </div>`;
   }
   eventsContainer.innerHTML = events;
-
-  // Remove existing event listeners
   const eventDivs = document.querySelectorAll('.event');
   eventDivs.forEach((eventDiv) => {
     eventDiv.removeEventListener('click', handleEventClick);
   });
-
-  // Add new event listeners to the "event" divs
   eventDivs.forEach((eventDiv) => {
     eventDiv.addEventListener('click', handleEventClick);
   });
-
   function handleEventClick() {
     const eventId = this.dataset.eventId;
-
-    // Ask for confirmation before deleting
     const isConfirmed = confirm("Are you sure you want to delete this event?");
     if (isConfirmed) {
-      // Delete the event from Firestore
       deleteEvent(eventId);
       updateEvents(date);
     }
   }
 }
-
 async function deleteEvent(eventId) {
   await deleteDoc(doc(eventDB, eventId));
-
-  
-  updateEvents(/* current date */);
+  updateEvents();
 }
-
-
-
-
-
-
-
 //function to add event
 addEventBtn.addEventListener("click", () => {
   addEventWrapper.classList.toggle("active");
 });
-
 addEventCloseBtn.addEventListener("click", () => {
   addEventWrapper.classList.remove("active");
 });
-
 document.addEventListener("click", (e) => {
   if (e.target !== addEventBtn && !addEventWrapper.contains(e.target)) {
     addEventWrapper.classList.remove("active");
   }
 });
-
 //allow 50 chars in eventtitle
 addEventTitle.addEventListener("input", (e) => {
   addEventTitle.value = addEventTitle.value.slice(0, 60);
 });
-
 addEventFacility.addEventListener("input", (e) => {
   addEventFacility.value = addEventFacility.value.slice(0, 60);
 });
-
-
-
-
-
 addEventSubmit.addEventListener("click", async () => {
   const eventTitle = addEventTitle.value;
   const eventFacility = addEventFacility.value;
   const eventReservedBy = addReservedBy.value;
   const eventTimeFrom = addEventFrom.value;
   const eventTimeTo = addEventTo.value;
-
   if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "" || eventFacility === "") {
     alert("Please fill all the fields");
     return;
   }
-
   const timeFrom = convertTime(eventTimeFrom);
   const timeTo = convertTime(eventTimeTo);
-  const fullDate = formatDate(activeDay, month, year); // Format the date
-
+  const fullDate = formatDate(activeDay, month, year);
   let eventExist = false;
   eventsArr.forEach((event) => {
     if (event.day === activeDay && event.month === month + 1 && event.year === year) {
@@ -387,12 +305,10 @@ addEventSubmit.addEventListener("click", async () => {
     alert("Event already added");
     return;
   }
-
   const querySnapshot = await getDocs(collection(db, "EventDatabase"));
   let facilityExist = false;
   let timeFromExist = false;
   let timeToExist = false;
-
   querySnapshot.forEach((doc) => {
     if (doc.data().facility === eventFacility) {
       facilityExist = true;
@@ -404,15 +320,13 @@ addEventSubmit.addEventListener("click", async () => {
       timeToExist = true;
     }
   });
-
   if (timeFromExist == true && timeToExist == true && facilityExist == true) {
     alert("The time you selected is reserved already.");
     return;
   }
-
   const newEvent = {
     date: activeDay,
-    fullDate: fullDate, // Include the fullDate
+    fullDate: fullDate,
     title: eventTitle,
     facility: eventFacility,
     reservedBy: eventReservedBy,
@@ -420,16 +334,13 @@ addEventSubmit.addEventListener("click", async () => {
     timeFrom: timeFrom,
     timeTo: timeTo,
   };
-
   addDoc(eventDB, newEvent);
-
   eventsArr.push({
     day: activeDay,
     month: month + 1,
     year: year,
     events: [newEvent],
   });
-
   console.log(eventsArr);
   addEventWrapper.classList.remove("active");
   addEventTitle.value = "";
@@ -438,32 +349,21 @@ addEventSubmit.addEventListener("click", async () => {
   addEventFrom.value = "";
   addEventTo.value = "";
   updateEvents(activeDay);
-
   const activeDayEl = document.querySelector(".day.active");
   if (!activeDayEl.classList.contains("event")) {
     activeDayEl.classList.add("event");
   }
 });
-
 function formatDate(date, month, year) {
-  const monthNumber = String(month + 1).padStart(2, '0'); // Convert month to a two-digit number
+  const monthNumber = String(month + 1).padStart(2, '0');
   return `${year} ${monthNumber} ${date}`;
 }
-
-
 addEventClear.addEventListener("click", () => {
-
   addEventFrom.value = "";
   addEventTo.value = "";
-
 } );
-
-
-
 async function getEvents() {
-  
   const eventsSnapshot = await getDocs(eventDB);
-
   if (eventsSnapshot.size > 0) {
     eventsSnapshot.forEach((doc) => {
       const eventData = doc.data();
@@ -472,9 +372,7 @@ async function getEvents() {
       }
     });
   }
- 
 }
-
 function convertTime(time) {
   //convert time to 24 hour format
   let timeArr = time.split(":");

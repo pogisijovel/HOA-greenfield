@@ -1,9 +1,9 @@
-import { getDocs,collection } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { getDocs,collection, query, where   } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
 
 import { db } from "../credentials/firebaseModule.js"
 
 
-displayCollection();
+
 
 // Get references to the select elements
 const selectMonth = document.getElementById("Select");
@@ -15,12 +15,14 @@ const resetB = document.getElementById("reset");
 selectMonth.addEventListener("change", function () {
   const selectedMonth = selectMonth.value;
   console.log("Selected Month: " + selectedMonth);
+ 
 });
 
 // Add an event listener to the year select element
 selectYear.addEventListener("change", function () {
   const selectedYear = selectYear.value;
   console.log("Selected Year: " + selectedYear);
+  
 });
 
 document.querySelectorAll('input[type="number"]').forEach(function(input) {
@@ -71,48 +73,75 @@ function populateYearOptions() {
       }
 
 //========================================================================================================================
-      
-      async function displayCollection() {
-        // Clear existing rows in the table
-        const trans = document.getElementById("showTable");
-        while (trans.rows.length > 1) {
-          trans.deleteRow(1);
-        }
-      
-        // Reference to the "CollectionList" collection in Firestore
-        const collectionRef = collection(db, "EventDatabase");
-      
-        try {
-          const querySnapshot = await getDocs(collectionRef);
-      
-  
-          // Loop through the documents in the CollectionList collection
-          querySnapshot.forEach((docSnapshot) => {
-            const data = docSnapshot.data();
-            const row = trans.insertRow(-1); // Add a new row to the table
-      
-            // Populate the row with the desired fields
-            const transactionNumCell = row.insertCell(0);
-            transactionNumCell.textContent = data.reservedBy;
-      
-            const memberNameCell = row.insertCell(1);
-            memberNameCell.textContent = data.title;
-      
-            const memberIDCell = row.insertCell(2);
-            memberIDCell.textContent = data.facility;
-      
-            const collectorCell = row.insertCell(3);
-            collectorCell.textContent = data.fullDate;
-      
-            const dateCell = row.insertCell(4);
-            dateCell.textContent = data.time;
-      
-      
-          });
-        } catch (error) {
-          console.error("Error fetching data: ", error);
-        }
+    
+function format12HourTime(timeString) {
+  const timeParts = timeString.split(':');
+  const hours = parseInt(timeParts[0]);
+  const minutes = timeParts[1];
+  const formattedHours = hours % 12 || 12;
+  return `${formattedHours}:${minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
+}
+
+async function displayQueryCollection() {
+  // Clear existing rows in the table
+  const trans = document.getElementById("showTable");
+  while (trans.rows.length > 1) {
+    trans.deleteRow(1);
+  }
+  const selectedYear = document.getElementById("selectYear").value;
+  const selectedMonth = document.getElementById("Select").value;
+
+  // Reference to the "CollectionList" collection in Firestore
+  const collectionRef = collection(db, "EventDatabase");
+
+
+  try {
+// Query the Firestore collection "CollectionList" with the memberName and date filter
+      const querySnapshot = await getDocs(
+        query(
+          collectionRef,
+          where("datetime", ">=", `${selectedYear}-${selectedMonth}-01`),
+          where("datetime", "<=", `${selectedYear}-${selectedMonth}-31`)
+        )
+      );
+
+      // Check if member has collections for the selected month
+      if (querySnapshot.size === 0) {
+        // If no collections, display "No Collection This Month"
+        const row = trans.insertRow(-1);
+        const noCollectionCell = row.insertCell(0);
+        noCollectionCell.textContent = "No Record This Month";
+        noCollectionCell.colSpan = 4; 
+      } else {
+        // Loop through the collections
+        querySnapshot.forEach((docSnapshot) => {
+          const data = docSnapshot.data();
+          const row = trans.insertRow(-1);
+
+          // Populate the row with the desired fields
+          const memberNameCell = row.insertCell(0);
+          memberNameCell.textContent = data.contNum;
+
+          const nameCell = row.insertCell(1);
+          nameCell.textContent = data.name;
+
+          const transactionNumCell = row.insertCell(2);
+          transactionNumCell.textContent = data.facility;
+
+          const collectorCell = row.insertCell(3);
+          collectorCell.textContent = data.datetime;
+
+          const dateCell = row.insertCell(4);
+          dateCell.textContent = `${format12HourTime(data.timeFrom)} - ${format12HourTime(data.timeTo)}`;
+
+         
+        });
       }
+    
+  } catch (error) {
+    console.error("Error fetching data: ", error);
+  }
+}
  
       
 
@@ -232,7 +261,7 @@ document.getElementById('generateReport').addEventListener('click', function () 
 
 
 
-
+document.getElementById("gene").addEventListener('click', displayQueryCollection)
 
 
 
@@ -248,7 +277,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 resetB.addEventListener("click", function() {
-  displayCollection();
-  selectMonth.selectedIndex = 0; 
-  selectYear.selectedIndex = 0; 
+  const trans = document.getElementById("showTable");
+  while (trans.rows.length > 1) {
+    trans.deleteRow(1);
+  }
 });

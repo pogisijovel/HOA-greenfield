@@ -5,7 +5,7 @@ import { signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/fir
 
     
     const urlParams = new URLSearchParams(window.location.search);
- 
+
    
     const signInEmail = urlParams.get("email");
     const singInUserType = urlParams.get("userType");

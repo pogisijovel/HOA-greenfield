@@ -9,6 +9,7 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     max-width: 400px;
+    height: auto;
     padding: 25px;
     border: 1px solid gainsboro;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
@@ -20,8 +21,16 @@ body {
     background-color: white;
     z-index: 999;
 }
-
-
+#accountID::-webkit-inner-spin-button,
+#accountID::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#popupAccountID::-webkit-inner-spin-button,
+#popupAccountID::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
         .form-container label {
             flex-basis: 45%; /* Adjust the width as needed */
             text-align: left;
@@ -352,6 +361,7 @@ transform: scale(1.05);
   font-family: "Amazon Ember",Arial,sans-serif;
   outline: 0;
   overflow: hidden;
+  margin-top: 10px;
   padding: 0 20px;
   text-align: center;
   text-decoration: none;

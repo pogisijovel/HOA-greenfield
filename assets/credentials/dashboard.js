@@ -1,126 +1,86 @@
-        import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-        import { auth } from "./firebaseModule.js";
-
-
+import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { auth } from "./firebaseModule.js";
 const urlParams = new URLSearchParams(window.location.search);
 const signInEmail = urlParams.get("email");
 const signInUserType = urlParams.get("userType");
-
 let email = signInEmail;
 let userType = signInUserType;
-
 const emailElement = document.getElementById("Email");
 const userTypeElement = document.getElementById("userType");
 const adminModuleWrapper = document.getElementById("adminModule");
 const signOutButton = document.getElementById("signOut");
-
 document.addEventListener('DOMContentLoaded', (event) => {
 onLoad();
-
   });
-
 
 
 
 signOutButton.addEventListener("click", logout);
 
-// Check if the user is authenticated
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // User is authenticated
         if (!signInEmail || !signInUserType) {
-            // Redirect to the login page if session information is missing
             redirectToLogin();
             return;
         }
-
-        emailElement.textContent = signInEmail;
-        userTypeElement.textContent = signInUserType;
-
         if (signInUserType === 'staff') {
             adminModuleWrapper.style.display = 'none';
-            // Handle staff-specific modules here
         } else if (signInUserType === 'admin') {
             adminModuleWrapper.style.display = 'block';
-            // Handle admin-specific modules here
         }
-
         signOutButton.addEventListener('click', logout);
     } else {
-        // User is not authenticated, redirect to the login page
         redirectToLogin();
     }
 });
-// Function to display a module
-function displayModule(iframeWrapperSelector, iframeSrc) {
-    const iframeWrapper = document.querySelector(iframeWrapperSelector);
-    const iframe = iframeWrapper.querySelector('iframe');
-    iframeWrapper.style.display = 'block';
-    iframe.src = iframeSrc;
-
-    // Hide all other iframe wrappers
-    document.querySelectorAll('.iframe-wrapper').forEach(wrapper => {
-        if (wrapper !== iframeWrapper) {
-            wrapper.style.display = 'none';
-        }
-    });
+function redirectToLogin() {
+    const url = 'http://127.0.0.1:5501/';
+    signOut(auth);
+    window.location.href = url;
 }
 
 
 function onLoad() {
     emailElement.textContent = signInEmail;
     userTypeElement.textContent = signInUserType;
-
     if (userType === 'staff') {
         adminModuleWrapper.style.display = 'none';
     } else if (userType === 'admin') {
         adminModuleWrapper.style.display = 'block';
-    }
-
-    if (!email || !userType) {
-        // Disable or hide modules when signInEmail or signInUserType is not available
+    }else {
         disableModules();
     }
 }
-
 function disableModules() {
-    // Disable or hide all modules here
     const modules = [
-        'member', 'collectionList', 'property', 'reserve', 'certificateSelect', 'account', 'reportSelect', 'colCat'
+        'member', 'collectionList', 'property', 'reserve', 'certificateSelect', 'account',
+         'individual', 'monthly', 'yearly', 'propertyrep', 'reservation', 'colCat',
     ];
-
     modules.forEach(moduleId => {
         const moduleElement = document.getElementById(moduleId);
-        moduleElement.style.display = 'none'; // or disable the module in another way
+        moduleElement.style.display = 'none';
     });
 }
+
+
+
 
 async function logout() {
     try {
         await signOut(auth);
-        const url = 'http://127.0.0.1:5500/index.html';
+        const url = 'http://127.0.0.1:5501/';
         window.location.replace(url);
     } catch (error) {
         console.error("Error logging out:", error.message);
     }
 }
 
-// ... Include the rest of your functions (handleCertificateSelection, collectionCat, etc.) here ...
-
-function redirectToLogin() {
-    const url = 'http://127.0.0.1:5500/index.html';
-    signOut(auth); // Sign out the user
-    window.location.href = url;
-}
-
-
-
 
   //start modules  
   document.getElementById('member').addEventListener('click', showMemberDetails);
   document.getElementById('collectionList').addEventListener('click', showCollectionlist);
   document.getElementById('property').addEventListener('click', showProperty);
-  document.getElementById('reserve').addEventListener('click', Reservation); // Make sure the function name matches the case
+  document.getElementById('reserve').addEventListener('click', Reservation);
   document.getElementById('certificateSelect').addEventListener('change', handleCertificateSelection);
   document.getElementById('account').addEventListener('click', Account);
   document.getElementById('colCat').addEventListener('click', collectionCat);
@@ -131,7 +91,6 @@ function redirectToLogin() {
   document.getElementById('propertyrep').addEventListener('click', propertyRep);
   document.getElementById('reservation').addEventListener('click',reservationRep);
 //end modules
-
 function reservationRep() {
     if (activeIframe) { 
         activeIframe.style.display = 'none';
@@ -143,7 +102,6 @@ function reservationRep() {
     propertyIframe.src = 'reportReservation.html';
     activeIframe = reservationRep;
     }
-
 function propertyRep() {
     if (activeIframe) {
         activeIframe.style.display = 'none';
@@ -155,7 +113,6 @@ function propertyRep() {
     propertyIframe.src = 'reportProperty.html';
     activeIframe = propertyRep;
     }
-
 function yearlyRep() {
     if (activeIframe) {
         activeIframe.style.display = 'none';
@@ -167,7 +124,6 @@ function yearlyRep() {
     propertyIframe.src = 'reportYearly.html';
     activeIframe = yearlyRep;
     }
-
 function monthlyRep() {
     if (activeIframe) {
         activeIframe.style.display = 'none';
@@ -179,7 +135,6 @@ function monthlyRep() {
     propertyIframe.src = 'reportMonthly.html';
     activeIframe = monthlyRep;
     }
-
 function individualRep() {
     if (activeIframe) {
         activeIframe.style.display = 'none';
@@ -191,7 +146,6 @@ function individualRep() {
     propertyIframe.src = 'reportIndividual.html';
     activeIframe = individualRep;
     }
-
     function collectionCat() {
         if (activeIframe) {
             activeIframe.style.display = 'none';
@@ -203,7 +157,6 @@ function individualRep() {
         propertyIframe.src = 'collectionCategory.html';
         activeIframe = colCat;
         }
-
     function reservationReport() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -215,7 +168,6 @@ function individualRep() {
             propertyIframe.src = 'reportReservation.html';
             activeIframe = reservationReport;
             }
-
     function propertyReport() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -227,7 +179,6 @@ function individualRep() {
             propertyIframe.src = 'reportProperty.html';
             activeIframe = collectionReport;
             }
-
     function collectionListReport() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -239,8 +190,6 @@ function individualRep() {
             propertyIframe.src = 'reportCollectionList.html';
             activeIframe = collectionReport;
             }
-
-
             function handleCertificateSelection(event) {
                 var selectElement = event.target;
                 var selectedValue = selectElement.value;
@@ -252,26 +201,18 @@ function individualRep() {
                     owner();
                 }
             }
-    
         var activeIframe = null;
-        
         function showMemberDetails() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
             }
-        
             var memberlistIframeWrapper = document.querySelector('.memberdetails-iframe-wrapper');
             memberlistIframeWrapper.style.display = 'block';
-            
             var memberlistIframe = document.getElementById('memberdetails-iframe');
-            memberlistIframe.src = 'members.html'; // Assuming 'members.html' is the correct path
-            
-            // Optionally, you may reset the height of the iframe
+            memberlistIframe.src = 'members.html';
             memberlistIframe.style.height = '100%';
-        
             activeIframe = memberlistIframeWrapper;
         }
-    
                 function showCollectionlist() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -282,8 +223,6 @@ function individualRep() {
             collectionIframe.src = 'collectionList.html';
             activeIframe = collectionIframeWrapper;
             }
-    
-        
             function showProperty() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -294,7 +233,6 @@ function individualRep() {
             propertyIframe.src = 'property.html';
             activeIframe = propertyIframeWrapper;
             }
-    
             function Reservation() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -306,7 +244,6 @@ function individualRep() {
             propertyIframe.src = 'requestEvent.html';
             activeIframe = reservationIframeWrapper;
             }
-    
             function building() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -318,7 +255,6 @@ function individualRep() {
             propertyIframe.src = 'buildingclearance.html';
             activeIframe = buildingIframeWrapper;
             }
-    
             function membership() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -330,7 +266,6 @@ function individualRep() {
             propertyIframe.src = 'certificateofmembership.html';
             activeIframe = membershipIframeWrapper;
             }
-    
             function owner() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';
@@ -342,9 +277,6 @@ function individualRep() {
             propertyIframe.src = 'titlecertificate.html';
             activeIframe = ownerIframeWrapper;
             }
-    
-    
-    
         function Account() {
             if (activeIframe) {
                 activeIframe.style.display = 'none';

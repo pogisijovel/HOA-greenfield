@@ -127,7 +127,8 @@ position: relative; /* Added for stacking context */
 /* Custom styling for Webkit browsers (Chrome, Safari) */
 #table-container::-webkit-scrollbar {
     width: 2px; /* Set width of the scrollbar */
-    height: 5px;
+    height: 15px;
+    margin-bottom: 10px;
 }
 
 #table-container::-webkit-scrollbar-thumb {
@@ -188,6 +189,15 @@ tr:hover {
 background-color: #ddd;
 }
 
+#genn {
+    background-color: rgb(30, 198, 75);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
 /* Reset button */
 #reset {
 background-color: #ef6546;

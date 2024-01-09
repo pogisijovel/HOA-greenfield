@@ -1,60 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/requestEvent.css">
-    <title>Event Handler</title>
-    <link rel="stylesheet" href="/assets/css/requestEvent.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/requestEvent.css">
+  <title>Event Handler</title>
+  <link rel="stylesheet" href="/assets/css/requestEvent.css">
+
 
 </head>
-<body >
-    <div class="toolbar">
-        <span><label>Event Handler</label></span>
+
+<body>
+  <div class="toolbar">
+    <span><label>Event Handler</label></span>
+  </div>
+  <div>
+    <button id="cal">Event Calendar</button>
+  </div>
+  <div id="searchBar">
+    <label for="facility">Select Facility</label>
+    <div id="container">
+      <input list="facilityVal" id="facility" placeholder="Choose Facility" value="facility 1">
+      <button id="selecB">Select</button>
     </div>
-    <div >
-        <button id="cal">Event Calendar</button>
-    </div>
-    <div id="searchBar">
-        <label for="facility">Select Facility</label>
-        <div id="container">
-        <input list="facilityVal" id="facility" placeholder="Choose Facility" value="facility 1">
-        <button id="selecB">Select</button>
-    </div>
- </div>
-    
-        <datalist id="facilityVal">
-          <option value="facility 1">
-          <option value="facility 2">
-          <option value="facility 3">
-          <option value="facility 4">
-          <option value="facility 5">
-        </datalist>
-</div>
+  </div>
+
+  <datalist id="facilityVal">
+    <option value="facility 1">
+    <option value="facility 2">
+    <option value="facility 3">
+    <option value="facility 4">
+    <option value="facility 5">
+  </datalist>
+  </div>
 
 
   <div id="table-container">
- <table id="eventsTable">
-  <thead>
-  <tr>
-    <th>Date</th>
-    <th>Facility</th>
-    <th>Reserved By</th>
-    <th>Time</th>
-    <th>Confirm</th>
-    <th>Reject</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  </tr>
-</tbody>
- </table>
-</div>
+    <table id="eventsTable">
+      <thead>
+        <tr>
+          <th colspan="7">Reservation Request</th>
+        </tr>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Facility</th>
+          <th>Contact #</th>
+          <th>Time</th>
+          <th>Confirm</th>
+          <th>Reject</th>
+        </tr>
+      </thead>
+      <tbody id="tt">
+        <tr>
 
-<script type="module" src="../assets/js/requestEvent.js"></script>
+        </tr>
+      </tbody>
+    </table>
+
+    <table id="reqTable">
+      <thead>
+        <tr>
+          <th colspan="4">Comfirmed Reservation</th>
+        </tr>
+        <tr>
+          <th>Facility</th>
+          <th>Date</th>
+          <th>Time From</th>
+          <th>Time To</th>
+        </tr>
+      </thead>
+      <tbody id="bads">
+
+      </tbody>
+    </table>
+  </div>
+
+  <script type="module" src="../assets/js/requestEvent.js"></script>
 
 </body>
+
 </html>

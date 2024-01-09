@@ -18,6 +18,8 @@
 
     <div id="popup" class="popup">
         <div class="label-input-pair">
+            <label for="accountID">Account ID:</label>
+            <input id="accountID" type="number" placeholder="Account ID" disabled>
             <label for="memberName">Member Name:</label>
             <input id="memberName" type="text" placeholder="Member Name">
             <label for="spouseName">Spouse Name:</label>
@@ -60,19 +62,21 @@
         <div class="button-container">
             <button id="addMember">Add Member</button>
             <button class="clear-button" id="clear">Clear</button>
-            <button id="closePopup">Close</button>
+            <button id="closePopup" onclick="togglePopup()">Close</button>
         </div>
     </div>
 
     <div id="searchBar" style="display: flex; align-items: center;">
-        <label for="searchInput" >Search:</label>
-        <input type="text" id="searchInput" placeholder="Search by Name" >
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" placeholder="Search by Name" list="names">
+        <datalist id="names"></datalist>
+        <button id="find">Find</button>
         <div class="container">
-        <button id="add" onclick="togglePopup()">Add Member</button>
-        <button id="Gen">Generate Report</button>
+            <button id="add" onclick="togglePopup()">Add Member</button>
+            <button id="Gen">Generate Report</button>
+        </div>
     </div>
-</div>
-    
+
 
     <div id="quer">
         <label for="categ" style="font-size: 16px;">Category:</label>
@@ -91,6 +95,7 @@
     <div>
         <table id="memberTable">
             <tr>
+                <th>Account ID</th>
                 <th>Name</th>
                 <th>Category</th>
                 <th>Status</th>
@@ -103,22 +108,22 @@
 
     <script>
         // Function to handle iframe interactivity
-function handleIframeInteraction() {
-    const iframes = document.querySelectorAll('iframe');
+        function handleIframeInteraction() {
+            const iframes = document.querySelectorAll('iframe');
 
-    iframes.forEach((iframe) => {
-        // Add necessary interaction logic for each iframe
-        iframe.addEventListener('load', () => {
-            // Additional logic if needed
-        });
-    });
-}
+            iframes.forEach((iframe) => {
+                // Add necessary interaction logic for each iframe
+                iframe.addEventListener('load', () => {
+                    // Additional logic if needed
+                });
+            });
+        }
 
-// Ensure iframe interaction is handled on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', handleIframeInteraction);
+        // Ensure iframe interaction is handled on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', handleIframeInteraction);
 
-// Additional bug fixes and improvements
-// ...
+        // Additional bug fixes and improvements
+        // ...
 
 
         function validateDate(input) {
@@ -142,48 +147,49 @@ document.addEventListener('DOMContentLoaded', handleIframeInteraction);
         function restrictMaxInputLength() {
             const contactNumInput = document.getElementById("contactNum");
 
-            contactNumInput.addEventListener("input", function() {
+            contactNumInput.addEventListener("input", function () {
                 if (this.value.length > 11) {
                     this.value = this.value.slice(0, 11); // Truncate input to 11 characters
                 }
             });
         }
 
-   // Adjusted togglePopup function
-function togglePopup() {
-    const popup = document.getElementById("popup");
-    if (popup.style.display === "none" || popup.style.display === "") {
-        // Show the popup
-        popup.style.display = "grid";
-    } else {
-        // Hide the popup
-        popup.style.display = "none";
-    }
-}
+        // Adjusted togglePopup function
+        function togglePopup() {
+            const popup = document.getElementById("popup");
+            if (popup.style.display === "none" || popup.style.display === "") {
+                // Show the popup
+                popup.style.display = "grid";
+            } else {
+                // Hide the popup
+                popup.style.display = "none";
+            }
+        }
 
-// Ensure popup functionality is handled on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('popup');
-    const closePopupButton = document.getElementById('closePopup');
+        // Ensure popup functionality is handled on DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('popup');
+            const closePopupButton = document.getElementById('closePopup');
 
-    // Function to show the popup
-    function showPopup() {
-        popup.style.display = 'grid';
-    }
+            // Function to show the popup
+            function showPopup() {
+                popup.style.display = 'grid';
+            }
 
-    // Function to hide the popup
-    function hidePopup() { 
-        popup.style.display = 'none';
-    }
+            // Function to hide the popup
+            function hidePopup() {
+                popup.style.display = 'none';
+            }
 
-    // Show the popup when needed (call this function where appropriate)
-    // showPopup();
+            // Show the popup when needed (call this function where appropriate)
+            // showPopup();
 
-    // Close the popup when the close button is clicked
-    closePopupButton.addEventListener('click', hidePopup);
-});
+            // Close the popup when the close button is clicked
+            closePopupButton.addEventListener('click', hidePopup);
+        });
 
     </script>
     <script type="module" src="../assets/js/member.js"></script>
 </body>
+
 </html>
